@@ -69,7 +69,7 @@ export function SiteFooter() {
         </div>
 
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-background/15 pt-6 text-sm text-background/60 sm:flex-row">
-          <p>© {new Date().getFullYear()} The Entertainer. A modern redesign concept.</p>
+          <p>© {new Date().getFullYear()} The Entertainer.</p>
           <div className="flex gap-5">
             <a href="#top" className="transition hover:text-background">Privacy</a>
             <a href="#top" className="transition hover:text-background">Terms</a>
