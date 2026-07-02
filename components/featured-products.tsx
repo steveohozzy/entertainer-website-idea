@@ -1,0 +1,70 @@
+import { ProductCard, type Product } from "@/components/product-card"
+
+const products: Product[] = [
+  {
+    name: "Rainbow Rocket Adventure Playset",
+    img: "/product-rocket.png",
+    price: 24.99,
+    wasPrice: 34.99,
+    rating: 4.9,
+    reviews: 812,
+    age: "Age 3+",
+    badge: "Bestseller",
+  },
+  {
+    name: "Cuddle Club Super Soft Teddy Bear",
+    img: "/product-plush.png",
+    price: 16.99,
+    rating: 4.8,
+    reviews: 1204,
+    age: "Age 0+",
+    badge: "New",
+  },
+  {
+    name: "Little Builders Wooden Block Set",
+    img: "/product-blocks.png",
+    price: 29.99,
+    wasPrice: 39.99,
+    rating: 4.9,
+    reviews: 540,
+    age: "Age 2+",
+    badge: "-25%",
+  },
+  {
+    name: "Speedy Racer Chunky Toy Car",
+    img: "/product-car.png",
+    price: 12.99,
+    rating: 4.7,
+    reviews: 366,
+    age: "Age 1+",
+  },
+]
+
+export function FeaturedProducts() {
+  return (
+    <section id="featured" className="mx-auto max-w-7xl px-4 py-14 lg:py-20">
+      <div className="mb-8 flex items-end justify-between gap-4">
+        <div>
+          <p className="font-heading text-sm font-bold uppercase tracking-widest text-primary">
+            Flying off the shelves
+          </p>
+          <h2 className="mt-1 font-heading text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+            This week&apos;s favourites
+          </h2>
+        </div>
+        <a
+          href="#featured"
+          className="hidden shrink-0 rounded-full border-2 border-border bg-card px-5 py-2.5 text-sm font-bold text-foreground transition hover:border-primary sm:inline-flex"
+        >
+          Shop all new in
+        </a>
+      </div>
+
+      <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
+        {products.map((product) => (
+          <ProductCard key={product.name} product={product} />
+        ))}
+      </div>
+    </section>
+  )
+}
