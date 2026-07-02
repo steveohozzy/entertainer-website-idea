@@ -1,4 +1,5 @@
 import { PromoPod } from "./promo-pod"
+import { ArrowUpRight } from "lucide-react"
 
 const items = [
   {
@@ -35,10 +36,11 @@ export function PodCarousel() {
         </h2>
 
         <a
-          href="#"
-          className="text-sm font-bold text-primary hover:underline"
+          href="#categories"
+          className="hidden shrink-0 items-center gap-1 rounded-full border-2 border-border bg-card px-5 py-2.5 text-sm font-bold text-foreground transition hover:border-primary sm:inline-flex"
         >
-          View all →
+          View all
+          <ArrowUpRight className="size-4" aria-hidden="true" />
         </a>
       </div>
 

@@ -1,4 +1,5 @@
 import { ProductCard, type Product } from "@/components/product-card"
+import { ArrowUpRight } from "lucide-react"
 
 const products: Product[] = [
   {
@@ -53,10 +54,11 @@ export function FeaturedProducts() {
           </h2>
         </div>
         <a
-          href="#featured"
-          className="hidden shrink-0 rounded-full border-2 border-border bg-card px-5 py-2.5 text-sm font-bold text-foreground transition hover:border-primary sm:inline-flex"
+          href="#categories"
+          className="hidden shrink-0 items-center gap-1 rounded-full border-2 border-border bg-card px-5 py-2.5 text-sm font-bold text-foreground transition hover:border-primary sm:inline-flex"
         >
-          Shop all new in
+          View all
+          <ArrowUpRight className="size-4" aria-hidden="true" />
         </a>
       </div>
 
