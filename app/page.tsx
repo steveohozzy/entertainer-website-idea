@@ -7,6 +7,7 @@ import { PromoBanner } from "@/components/promo-banner"
 import { ShopByAge } from "@/components/shop-by-age"
 import { BrandStrip } from "@/components/brand-strip"
 import { Newsletter } from "@/components/newsletter"
+import { PodCarousel } from "@/components/pod-carousel"
 import { SiteFooter } from "@/components/site-footer"
 
 export default function Page() {
@@ -15,11 +16,12 @@ export default function Page() {
       <SiteHeader />
       <main>
         <Hero />
+        <ShopByAge />
         <ValueProps />
+        <PodCarousel />
         <CategoryGrid />
         <FeaturedProducts />
         <PromoBanner />
-        <ShopByAge />
         <BrandStrip />
         <Newsletter />
       </main>

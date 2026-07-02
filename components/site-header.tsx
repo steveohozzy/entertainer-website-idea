@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import { Search, Heart, ShoppingBag, User, Menu, X, Truck } from "lucide-react"
+import Image from "next/image"
 
 const navLinks = [
   { label: "Toys", href: "#categories" },
@@ -24,11 +25,36 @@ export function SiteHeader() {
         </div>
       </div>
 
-      <div className="border-b border-border bg-background/90 backdrop-blur">
+      <div
+  className="
+  relative
+  border-b
+  border-white/20
+
+  bg-[rgba(5, 46, 92, 0.72)]
+  backdrop-blur-3xl
+  supports-[backdrop-filter]:bg-[rgba(16,74,141,0.75)]
+
+  shadow-[0_8px_30px_rgba(64,126,201,.25)]
+
+  before:absolute
+  before:inset-0
+  before:pointer-events-none
+  before:bg-gradient-to-r
+  before:from-white/25
+  before:via-white/8
+  before:to-transparent
+
+  after:absolute
+  after:inset-0
+  after:pointer-events-none
+  after:bg-[linear-gradient(180deg,rgba(255,255,255,.15),transparent)]
+  "
+>
         <div className="mx-auto flex max-w-7xl items-center gap-4 px-4 py-3">
           <button
             type="button"
-            className="inline-flex items-center justify-center rounded-full p-2 text-foreground lg:hidden"
+            className="inline-flex items-center justify-center rounded-full p-2 text-white lg:hidden"
             onClick={() => setOpen((v) => !v)}
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
@@ -37,11 +63,8 @@ export function SiteHeader() {
           </button>
 
           <a href="#top" className="flex items-center gap-2" aria-label="The Entertainer home">
-            <span className="grid size-10 place-items-center rounded-2xl bg-primary text-primary-foreground shadow-sm">
-              <ShoppingBag className="size-5" aria-hidden="true" />
-            </span>
-            <span className="font-heading text-xl font-bold leading-none tracking-tight text-foreground">
-              the<span className="text-primary">entertainer</span>
+            <span className="font-heading text-xl font-bold leading-none tracking-tight text-white">
+              <Image title="" alt="" src="https://www.thetoyshop.com/medias/entertainer-logo-secondary-BTS-1-.png?context=bWFzdGVyfGltYWdlc3wxNjcxNDN8aW1hZ2UvcG5nfGFHSmxMMmhoWXk4eE1qWTNPRGt6TkRJd01ETTFNQzlsYm5SbGNuUmhhVzVsY2kxc2IyZHZMWE5sWTI5dVpHRnllUzFDVkZNdE1TMHVjRzVufDIyOWZjZDk5YmZlZWNmYWI2ZTU0NGJhMjhlMTcyMmNjYzdhNDdlMGJkODBiOWIyODlmMWQ5MzFjNjgxZTc2YTU" width={200} height={40} />
             </span>
           </a>
 
@@ -56,11 +79,11 @@ export function SiteHeader() {
           </div>
 
           <div className="ml-auto flex items-center gap-1 md:ml-0">
-            <button className="hidden items-center gap-2 rounded-full px-3 py-2 text-sm font-semibold text-foreground transition hover:bg-muted sm:inline-flex">
+            <button className="hidden items-center gap-2 rounded-full px-3 py-2 text-sm font-semibold text-white transition hover:bg-muted hover:text-foreground sm:inline-flex cursor-pointer">
               <User className="size-5" aria-hidden="true" />
               <span className="hidden lg:inline">Account</span>
             </button>
-            <button className="inline-flex items-center gap-2 rounded-full px-3 py-2 text-sm font-semibold text-foreground transition hover:bg-muted">
+            <button className="inline-flex items-center gap-2 rounded-full px-3 py-2 text-sm font-semibold text-white transition hover:bg-muted hover:text-foreground cursor-pointer">
               <Heart className="size-5" aria-hidden="true" />
               <span className="sr-only">Wishlist</span>
             </button>
@@ -80,7 +103,7 @@ export function SiteHeader() {
             <a
               key={link.label}
               href={link.href}
-              className="rounded-full px-4 py-2 text-sm font-bold text-foreground transition hover:bg-muted"
+              className="rounded-full px-4 py-2 text-sm font-bold text-white transition hover:bg-muted hover:text-foreground"
             >
               {link.label}
             </a>
@@ -112,7 +135,7 @@ export function SiteHeader() {
                   key={link.label}
                   href={link.href}
                   onClick={() => setOpen(false)}
-                  className="rounded-xl px-4 py-3 text-base font-bold text-foreground transition hover:bg-muted"
+                  className="rounded-xl px-4 py-3 text-base font-bold text-white transition hover:bg-muted hover:text-foreground"
                 >
                   {link.label}
                 </a>

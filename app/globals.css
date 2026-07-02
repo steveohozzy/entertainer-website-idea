@@ -52,15 +52,15 @@
 :root {
   color-scheme: light;
   --background: oklch(0.98 0.012 85);
-  --foreground: oklch(0.24 0.04 265);
+  --foreground: #053053;
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.24 0.04 265);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.24 0.04 265);
-  --primary: oklch(0.62 0.21 24);
+  --primary: #407ec9;
   --primary-foreground: oklch(0.99 0.01 85);
-  --secondary: oklch(0.83 0.16 84);
-  --secondary-foreground: oklch(0.28 0.05 60);
+  --secondary: rgb(242,48,67);
+  --secondary-foreground: #fff;
   --muted: oklch(0.95 0.015 85);
   --muted-foreground: oklch(0.52 0.03 265);
   --accent: oklch(0.55 0.2 255);
