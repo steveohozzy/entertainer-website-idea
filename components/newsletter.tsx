@@ -39,7 +39,7 @@ export function Newsletter() {
           />
           <button
             type="submit"
-            className="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-7 py-3 text-base font-bold text-primary-foreground transition hover:opacity-90"
+            className="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-7 py-2 text-base font-bold text-primary-foreground transition hover:opacity-90 whitespace-nowrap"
           >
             {sent ? (
               <>
