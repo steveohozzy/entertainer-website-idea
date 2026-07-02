@@ -1,6 +1,5 @@
 import { SiteHeader } from "@/components/site-header"
 import { Hero } from "@/components/hero"
-import { ValueProps } from "@/components/value-props"
 import { CategoryGrid } from "@/components/category-grid"
 import { FeaturedProducts } from "@/components/featured-products"
 import { PromoBanner } from "@/components/promo-banner"
@@ -17,7 +16,7 @@ export default function Page() {
       <main>
         <Hero />
         <ShopByAge />
-        <ValueProps />
+        <FeaturedProducts />
         <PodCarousel />
         <CategoryGrid />
         <FeaturedProducts />
