@@ -1,4 +1,5 @@
 import { ShoppingBag, Globe, MessageCircle, Send } from "lucide-react"
+import Image from "next/image"
 
 const columns = [
   {
@@ -22,13 +23,10 @@ export function SiteFooter() {
         <div className="grid gap-10 lg:grid-cols-[1.4fr_repeat(3,1fr)]">
           <div>
             <a href="#top" className="flex items-center gap-2" aria-label="The Entertainer home">
-              <span className="grid size-10 place-items-center rounded-2xl bg-primary text-primary-foreground">
-                <ShoppingBag className="size-5" aria-hidden="true" />
-              </span>
-              <span className="font-heading text-xl font-bold leading-none">
-                the<span className="text-primary">entertainer</span>
-              </span>
-            </a>
+                        <span className="font-heading text-xl font-bold leading-none tracking-tight text-white">
+                          <Image title="" alt="" src="https://www.thetoyshop.com/medias/entertainer-logo-secondary-BTS-1-.png?context=bWFzdGVyfGltYWdlc3wxNjcxNDN8aW1hZ2UvcG5nfGFHSmxMMmhoWXk4eE1qWTNPRGt6TkRJd01ETTFNQzlsYm5SbGNuUmhhVzVsY2kxc2IyZHZMWE5sWTI5dVpHRnllUzFDVkZNdE1TMHVjRzVufDIyOWZjZDk5YmZlZWNmYWI2ZTU0NGJhMjhlMTcyMmNjYzdhNDdlMGJkODBiOWIyODlmMWQ5MzFjNjgxZTc2YTU" width={200} height={40} />
+                        </span>
+                      </a>
             <p className="mt-4 max-w-xs text-pretty text-sm leading-relaxed text-background/70">
               The UK&apos;s favourite toy shop — bringing joy to families with
               carefully chosen toys since day one.
