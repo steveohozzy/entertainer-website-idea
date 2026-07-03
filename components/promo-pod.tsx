@@ -8,6 +8,7 @@ type Props = {
   cta?: string
   dataPromotionIndex?: string
   dataPromotionName?: string
+  background?: string
 }
 
 export function PromoPod({
@@ -17,6 +18,7 @@ export function PromoPod({
   cta = "Shop now",
   dataPromotionIndex,
   dataPromotionName,
+  background,
 }: Props) {
   return (
     <a
@@ -53,7 +55,7 @@ export function PromoPod({
         />
 
         {/* gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/15 via-black/5 to-transparent" />
       </div>
 
       {/* glow orb */}
@@ -78,15 +80,15 @@ export function PromoPod({
       {/* CONTENT */}
       <div className="relative z-10 mt-auto p-5">
         <div
-          className="
+          className={`
             backdrop-blur-xl
-            bg-white/10
+            ${background ?? "bg-white/10"}
             border
             border-white/15
             rounded-2xl
             p-5
             shadow-lg
-          "
+            `}
         >
           <h3 className="text-xl font-black leading-tight text-white">
             {title}
