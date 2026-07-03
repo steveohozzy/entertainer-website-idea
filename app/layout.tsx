@@ -3,19 +3,27 @@ import type { Metadata, Viewport } from 'next'
 import { Fredoka, Nunito, Geist_Mono } from 'next/font/google'
 import './globals.css'
 
+import { SiteHeader } from '@/components/site-header'
+import { SiteFooter} from '@/components/site-footer'
+
 const fredoka = Fredoka({
   variable: '--font-fredoka',
   subsets: ['latin'],
   weight: ['400', '500', '600', '700'],
 })
-const nunito = Nunito({ variable: '--font-nunito', subsets: ['latin'] })
+
+const nunito = Nunito({
+  variable: '--font-nunito',
+  subsets: ['latin'],
+})
+
 const geistMono = Geist_Mono({
   variable: '--font-geist-mono',
   subsets: ['latin'],
 })
 
 export const metadata: Metadata = {
-  title: 'The Entertainer — The UK\u2019s Favourite Toy Shop',
+  title: 'The Entertainer — The UK’s Favourite Toy Shop',
   description:
     'Discover magical toys for every age. Shop building blocks, plush friends, games, outdoor fun and more with free click & collect.',
   generator: 'v0.app',
@@ -48,16 +56,26 @@ export const viewport: Viewport = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode
-}>) {
+}) {
   return (
     <html
       lang="en"
-      className={`light ${fredoka.variable} ${nunito.variable} ${geistMono.variable} bg-background`}
+      className={`${fredoka.variable} ${nunito.variable} ${geistMono.variable}`}
     >
-      <body className="font-sans antialiased">
-        {children}
+      <body className="font-sans antialiased bg-background text-foreground">
+
+        {/* GLOBAL SHELL */}
+        <SiteHeader />
+
+        {/* PAGE CONTENT */}
+        <main className="min-h-screen">
+          {children}
+        </main>
+
+        <SiteFooter />
+
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>

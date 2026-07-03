@@ -12,7 +12,6 @@ import { CompetitionBanners } from "@/components/Competitions"
 export default function Page() {
   return (
     <div className="min-h-screen bg-background">
-      <SiteHeader />
       <main>
         <Hero />
         <ShopByAge />
@@ -24,7 +23,6 @@ export default function Page() {
         <CompetitionBanners />
         <Newsletter />
       </main>
-      <SiteFooter />
     </div>
   )
 }
