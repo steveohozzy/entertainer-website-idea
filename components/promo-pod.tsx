@@ -36,6 +36,7 @@ export function PromoPod({
         transition
         snap-start
         min-h-[520px]
+        shadow-[0_10px_20px_rgba(0,0,0,.12)]
       "
     >
       {/* IMAGE */}

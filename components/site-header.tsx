@@ -1,155 +1,343 @@
 "use client"
 
 import { useState } from "react"
-import { Search, Heart, ShoppingBag, User, Menu, X, Truck } from "lucide-react"
+import {
+  Search,
+  Heart,
+  ShoppingBag,
+  User,
+  Menu,
+  X,
+  Truck,
+  ChevronRight,
+  ChevronLeft,
+} from "lucide-react"
 import Image from "next/image"
 
 const navLinks = [
-  { label: "Toys", href: "#categories" },
-  { label: "Shop by Age", href: "#ages" },
-  { label: "Deals", href: "#deals" },
-  { label: "New In", href: "#featured" },
-  { label: "Brands", href: "#brands" },
+  {
+    label: "Toys",
+    href: "#categories",
+    children: ["Action Figures", "LEGO", "Outdoor", "Arts & Crafts", "Games"],
+  },
+  {
+    label: "Shop by Age",
+    href: "#ages",
+    children: ["0–2", "3–5", "6–8", "9–12", "12+"],
+  },
+  {
+    label: "Deals",
+    href: "#deals",
+    children: ["Sale", "Bundles", "Clearance", "Pre-orders"],
+  },
+  {
+    label: "Brands",
+    href: "#brands",
+    children: ["LEGO", "Barbie", "Hot Wheels", "Pokemon"],
+  },
 ]
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false)
+  const [activeMenu, setActiveMenu] = useState<string | null>(null)
+  const [mobileLevel, setMobileLevel] = useState<string | null>(null)
+
+  const activeMobile = navLinks.find((x) => x.label === mobileLevel)
 
   return (
-    <header className="sticky top-0 z-50 w-full">
-      {/* Announcement bar */}
+    <header className="sticky top-0 z-50 w-full overflow-x-clip">
+
+      {/* top bar */}
       <div className="bg-foreground text-background">
-        <div className="mx-auto flex max-w-7xl items-center justify-center gap-2 px-4 py-2 text-center text-xs font-semibold sm:text-sm">
-          <Truck className="size-4 shrink-0" aria-hidden="true" />
-          <span>Free click &amp; collect from 170+ stores · Free delivery over £30</span>
+        <div className="mx-auto flex max-w-7xl items-center justify-center gap-2 px-4 py-2 text-xs font-semibold">
+          <Truck className="size-4" />
+          Free click & collect · Free delivery over £30
         </div>
       </div>
 
+      {/* MAIN HEADER */}
       <div
-  className="
-  relative
-  border-b
-  border-white/20
+        className="
+        relative
+        border-b
+        border-white/15
 
-  bg-[rgba(5, 46, 92, 0.72)]
-  backdrop-blur-3xl
-  supports-[backdrop-filter]:bg-[rgba(16,74,141,0.75)]
+        bg-[rgba(6,38,78,.88)]
+        backdrop-blur-3xl
 
-  shadow-[0_8px_30px_rgba(64,126,201,.25)]
+        shadow-[0_20px_60px_rgba(0,0,0,.35)]
 
-  before:absolute
-  before:inset-0
-  before:pointer-events-none
-  before:bg-gradient-to-r
-  before:from-white/25
-  before:via-white/8
-  before:to-transparent
-
-  after:absolute
-  after:inset-0
-  after:pointer-events-none
-  after:bg-[linear-gradient(180deg,rgba(255,255,255,.15),transparent)]
-  "
->
+        overflow-visible
+      "
+      >
         <div className="mx-auto flex max-w-7xl items-center gap-4 px-4 py-3">
+
+          {/* mobile burger */}
           <button
-            type="button"
-            className="inline-flex items-center justify-center rounded-full p-2 text-white lg:hidden"
-            onClick={() => setOpen((v) => !v)}
-            aria-label={open ? "Close menu" : "Open menu"}
-            aria-expanded={open}
+            onClick={() => setOpen(true)}
+            className="lg:hidden rounded-full bg-white/10 p-3 text-white backdrop-blur-xl"
           >
-            {open ? <X className="size-6" /> : <Menu className="size-6" />}
+            <Menu />
           </button>
 
-          <a href="#top" className="flex items-center gap-2" aria-label="The Entertainer home">
-            <span className="font-heading text-xl font-bold leading-none tracking-tight text-white">
-              <Image title="" alt="" src="https://www.thetoyshop.com/medias/entertainer-logo-secondary-BTS-1-.png?context=bWFzdGVyfGltYWdlc3wxNjcxNDN8aW1hZ2UvcG5nfGFHSmxMMmhoWXk4eE1qWTNPRGt6TkRJd01ETTFNQzlsYm5SbGNuUmhhVzVsY2kxc2IyZHZMWE5sWTI5dVpHRnllUzFDVkZNdE1TMHVjRzVufDIyOWZjZDk5YmZlZWNmYWI2ZTU0NGJhMjhlMTcyMmNjYzdhNDdlMGJkODBiOWIyODlmMWQ5MzFjNjgxZTc2YTU" width={200} height={40} />
-            </span>
+          {/* logo */}
+          <a href="#" className="shrink-0">
+            <Image
+              src="https://www.thetoyshop.com/medias/entertainer-logo-secondary-BTS-1-.png?context=bWFzdGVyfGltYWdlc3wxNjcxNDN8aW1hZ2UvcG5nfGFHSmxMMmhoWXk4eE1qWTNPRGt6TkRJd01ETTFNQzlsYm5SbGNuUmhhVzVsY2kxc2IyZHZMWE5sWTI5dVpHRnllUzFDVkZNdE1TMHVjRzVufDIyOWZjZDk5YmZlZWNmYWI2ZTU0NGJhMjhlMTcyMmNjYzdhNDdlMGJkODBiOWIyODlmMWQ5MzFjNjgxZTc2YTU"
+              width={180}
+              height={40}
+              alt=""
+            />
           </a>
 
-          {/* Search */}
+          {/* search */}
           <div className="relative hidden flex-1 md:block">
-            <Search className="pointer-events-none absolute left-4 top-1/2 size-5 -translate-y-1/2 text-muted-foreground" />
+            <Search className="absolute left-4 top-1/2 size-5 -translate-y-1/2 text-white/60" />
             <input
-              type="search"
-              placeholder="Search for toys, brands and characters…"
-              className="w-full rounded-full border border-border bg-muted py-3 pl-12 pr-4 text-sm text-foreground outline-none transition focus:border-primary focus:bg-card"
+              className="
+              w-full
+              rounded-full
+              border
+              border-white/10
+              bg-white/10
+              py-3 pl-12 pr-4
+              text-white
+              backdrop-blur-xl
+              outline-none
+            "
+              placeholder="Search toys..."
             />
           </div>
 
-          <div className="ml-auto flex items-center gap-1 md:ml-0">
-            <button className="hidden items-center gap-2 rounded-full px-3 py-2 text-sm font-semibold text-white transition hover:bg-muted hover:text-foreground sm:inline-flex cursor-pointer">
-              <User className="size-5" aria-hidden="true" />
-              <span className="hidden lg:inline">Account</span>
+          {/* icons */}
+          <div className="ml-auto flex items-center gap-2 text-white">
+
+            <User className="hidden sm:block cursor-pointer" />
+            <Heart className="cursor-pointer" />
+
+            <button className="flex items-center gap-2 rounded-full bg-primary px-4 py-2 font-bold">
+              <ShoppingBag className="size-5" />
+              3
             </button>
-            <button className="inline-flex items-center gap-2 rounded-full px-3 py-2 text-sm font-semibold text-white transition hover:bg-muted hover:text-foreground cursor-pointer">
-              <Heart className="size-5" aria-hidden="true" />
-              <span className="sr-only">Wishlist</span>
-            </button>
-            <button className="relative inline-flex items-center gap-2 rounded-full bg-primary px-4 py-2 text-sm font-bold text-primary-foreground transition hover:opacity-90">
-              <ShoppingBag className="size-5" aria-hidden="true" />
-              <span className="hidden sm:inline">Basket</span>
-              <span className="grid size-5 place-items-center rounded-full bg-secondary text-[11px] font-bold text-secondary-foreground">
-                3
-              </span>
-            </button>
+
           </div>
+
         </div>
 
-        {/* Desktop nav */}
-        <nav className="mx-auto hidden max-w-7xl items-center gap-1 px-4 pb-3 lg:flex">
-          {navLinks.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              className="rounded-full px-4 py-2 text-sm font-bold text-white transition hover:bg-muted hover:text-foreground"
+        {/* NAV */}
+        <nav className="mx-auto hidden max-w-7xl gap-2 px-4 pb-3 lg:flex">
+
+          {navLinks.map((item) => (
+
+            <div
+              key={item.label}
+              className="relative"
+              onMouseEnter={() => setActiveMenu(item.label)}
+              onMouseLeave={() => setActiveMenu(null)}
             >
-              {link.label}
-            </a>
+
+              <button className="rounded-full px-4 py-2 font-bold text-white hover:bg-white/10">
+                {item.label}
+              </button>
+
+              {/* invisible hover bridge (FIXES DISAPPEARING ISSUE) */}
+              <div className="absolute left-0 top-full h-6 w-full" />
+
+              {activeMenu === item.label && (
+
+                <div
+                  className="
+                  absolute
+                  left-0
+                  top-full
+                  mt-2
+
+                  w-[780px]
+
+                  rounded-[28px]
+                  border
+                  border-white/15
+
+                  bg-[rgba(8,16,32,.97)]
+
+                  backdrop-blur-3xl
+
+                  shadow-[0_40px_120px_rgba(0,0,0,.5)]
+
+                  overflow-hidden
+                  z-50
+                "
+                >
+
+                  <div className="grid grid-cols-2 gap-8 p-8">
+
+                    <div>
+                      <h3 className="mb-4 text-xl font-black text-white">
+                        {item.label}
+                      </h3>
+
+                      <div className="space-y-2">
+                        {item.children.map((c) => (
+                          <a
+                            key={c}
+                            href="#"
+                            className="
+                            block
+                            rounded-xl
+                            px-4 py-3
+                            text-white/80
+                            hover:bg-white/10
+                            hover:text-white
+                            transition
+                          "
+                          >
+                            {c}
+                          </a>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className="rounded-3xl bg-white/10 p-6 backdrop-blur-xl">
+                      <p className="text-white font-bold">
+                        Trending now
+                      </p>
+                      <p className="mt-2 text-sm text-white/70">
+                        Discover top toys and new arrivals
+                      </p>
+                    </div>
+
+                  </div>
+
+                </div>
+
+              )}
+
+            </div>
+
           ))}
-          <a
-            href="#deals"
-            className="ml-auto rounded-full bg-secondary px-4 py-2 text-sm font-bold text-secondary-foreground transition hover:opacity-90"
-          >
-            🎉 Up to 50% off Sale
-          </a>
+
         </nav>
+
       </div>
 
-      {/* Mobile menu */}
+      {/* MOBILE */}
       {open && (
-        <div className="border-b border-border bg-background lg:hidden">
-          <div className="mx-auto max-w-7xl space-y-3 px-4 py-4">
-            <div className="relative">
-              <Search className="pointer-events-none absolute left-4 top-1/2 size-5 -translate-y-1/2 text-muted-foreground" />
-              <input
-                type="search"
-                placeholder="Search toys…"
-                className="w-full rounded-full border border-border bg-muted py-3 pl-12 pr-4 text-sm outline-none focus:border-primary"
-              />
+
+        <div className="fixed inset-0 z-[100] lg:hidden overflow-hidden">
+
+          {/* overlay */}
+          <div
+            onClick={() => {
+              setOpen(false)
+              setMobileLevel(null)
+            }}
+            className="absolute inset-0 bg-black/60 backdrop-blur-md"
+          />
+
+          {/* drawer */}
+          <div
+            className="
+            absolute
+            left-0
+            top-0
+
+            h-full
+            w-full
+            max-w-[420px]
+
+            bg-[rgba(10,20,40,.96)]
+            backdrop-blur-3xl
+
+            border-r
+            border-white/10
+
+            shadow-[0_30px_90px_rgba(0,0,0,.55)]
+
+            overflow-hidden
+          "
+          >
+
+            {/* HEADER */}
+            <div className="flex items-center justify-between p-6 text-white">
+              <h2 className="text-xl font-black">Menu</h2>
+              <button onClick={() => setOpen(false)}>
+                <X />
+              </button>
             </div>
-            <nav className="grid gap-1">
-              {navLinks.map((link) => (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  onClick={() => setOpen(false)}
-                  className="rounded-xl px-4 py-3 text-base font-bold text-white transition hover:bg-muted hover:text-foreground"
+
+            {/* PANELS (ANIMATED LAYER SYSTEM) */}
+            <div className="relative h-full">
+
+              {/* MAIN */}
+              <div
+                className={`
+                absolute inset-0 px-4 space-y-2
+                transition-all duration-300
+                ${mobileLevel ? "-translate-x-full opacity-0" : "translate-x-0 opacity-100"}
+              `}
+              >
+                {navLinks.map((item) => (
+                  <button
+                    key={item.label}
+                    onClick={() => setMobileLevel(item.label)}
+                    className="
+                    flex w-full justify-between
+                    rounded-2xl
+                    bg-white/10
+                    px-5 py-4
+                    text-white font-bold
+                    backdrop-blur-xl
+                  "
+                  >
+                    {item.label}
+                    <ChevronRight />
+                  </button>
+                ))}
+              </div>
+
+              {/* SUB */}
+              <div
+                className={`
+                absolute inset-0 px-4
+                transition-all duration-300
+                ${mobileLevel ? "translate-x-0 opacity-100" : "translate-x-full opacity-0"}
+              `}
+              >
+                <button
+                  onClick={() => setMobileLevel(null)}
+                  className="mb-4 flex items-center gap-2 text-white font-bold"
                 >
-                  {link.label}
-                </a>
-              ))}
-            </nav>
-            <button
-              type="button"
-              className="w-full rounded-full bg-primary px-6 py-3 text-base font-bold text-primary-foreground transition hover:opacity-90"
-            >
-              Sign in / Register
-            </button>
+                  <ChevronLeft /> Back
+                </button>
+
+                <div className="space-y-2">
+                  {activeMobile?.children.map((c) => (
+                    <a
+                      key={c}
+                      href="#"
+                      className="
+                      block
+                      rounded-2xl
+                      bg-white/10
+                      px-5 py-4
+                      text-white
+                      backdrop-blur-xl
+                    "
+                    >
+                      {c}
+                    </a>
+                  ))}
+                </div>
+              </div>
+
+            </div>
+
           </div>
+
         </div>
+
       )}
+
     </header>
   )
 }
