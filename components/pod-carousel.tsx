@@ -103,32 +103,16 @@ export function PodCarousel() {
       {/* header */}
       <div className="mb-6 flex items-end justify-between">
 
-        <h2 className="text-2xl font-black text-foreground">
-          Featured deals
-        </h2>
+        <h2 className="mt-1 font-heading text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+            Featured Deals
+          </h2>
 
         <a
           href="#categories"
-          className="
-            hidden
-            items-center
-            gap-2
-            rounded-full
-            border
-            border-white/20
-            bg-white/10
-            px-5
-            py-2.5
-            text-sm
-            font-bold
-            backdrop-blur-xl
-            transition
-            hover:bg-white/20
-            sm:inline-flex
-          "
+          className="hidden shrink-0 items-center gap-1 rounded-full border-2 border-border bg-card px-5 py-2.5 text-sm font-bold text-foreground transition hover:border-primary sm:inline-flex"
         >
           View all
-          <ArrowUpRight className="size-4" />
+          <ArrowUpRight className="size-4" aria-hidden="true" />
         </a>
 
       </div>

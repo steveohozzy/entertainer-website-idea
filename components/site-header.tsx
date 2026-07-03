@@ -143,7 +143,7 @@ export function SiteHeader() {
         </div>
 
         {/* NAV */}
-        <nav className="mx-auto hidden max-w-7xl gap-2 px-4 pb-3 lg:flex">
+        <nav className="mx-auto hidden max-w-7xl px-4 pb-3 lg:flex">
 
           {navLinks.map((item) => (
 
@@ -154,11 +154,11 @@ export function SiteHeader() {
               onMouseLeave={() => setActiveMenu(null)}
             >
 
-              <button className="rounded-full px-4 py-2 font-bold text-white hover:bg-white/10">
+              <button className="rounded-full px-5 py-2 font-bold text-white hover:bg-white/10 cursor-pointer">
                 {item.label}
               </button>
 
-              {/* invisible hover bridge (FIXES DISAPPEARING ISSUE) */}
+
               <div className="absolute left-0 top-full h-6 w-full" />
 
               {activeMenu === item.label && (
@@ -176,7 +176,7 @@ export function SiteHeader() {
                   border
                   border-white/15
 
-                  bg-[rgba(8,16,32,.97)]
+                  bg-[rgba(8,16,32,.9)]
 
                   backdrop-blur-3xl
 

@@ -63,34 +63,12 @@ export function CategoryGrid() {
           </div>
 
           <a
-            href="#categories"
-            className="
-            hidden
-            items-center
-            gap-2
-            rounded-full
-
-            border border-white/15
-            bg-white/40
-            backdrop-blur-xl
-
-            px-5
-            py-2.5
-
-            text-sm
-            font-bold
-
-            shadow-lg
-
-            transition
-            hover:bg-white/60
-
-            sm:inline-flex
-          "
-          >
-            View all
-            <ArrowUpRight className="size-4" />
-          </a>
+          href="#categories"
+          className="hidden shrink-0 items-center gap-1 rounded-full border-2 border-border bg-card px-5 py-2.5 text-sm font-bold text-foreground transition hover:border-primary sm:inline-flex"
+        >
+          View all
+          <ArrowUpRight className="size-4" aria-hidden="true" />
+        </a>
 
         </div>
 

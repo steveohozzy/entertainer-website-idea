@@ -125,6 +125,8 @@ export function ProductCard({ product }: { product: Product }) {
 
           transition
           hover:scale-110
+
+          cursor-pointer
         "
         >
           <Heart
@@ -232,6 +234,8 @@ export function ProductCard({ product }: { product: Product }) {
 
             transition-all
             hover:scale-110
+
+            cursor-pointer
 
             ${
               added
