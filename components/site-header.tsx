@@ -62,7 +62,7 @@ export function SiteHeader() {
         border-b
         border-white/15
 
-        bg-[rgba(6,38,78,.88)]
+        bg-[rgba(3,49,105,0.75)]
         backdrop-blur-3xl
 
         shadow-[0_20px_60px_rgba(0,0,0,.35)]
