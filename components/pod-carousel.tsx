@@ -154,15 +154,15 @@ export function PodCarousel() {
 
             rounded-full
             border
-            border-white/20
-            bg-white/10
+            border-white/50
+            bg-white/30
             backdrop-blur-2xl
 
-            shadow-xl
+            shadow-lg
 
             transition
             hover:scale-110
-            hover:bg-white/20
+            hover:bg-white/40
           "
         >
           <ChevronLeft className="size-6" />
@@ -187,15 +187,15 @@ export function PodCarousel() {
 
             rounded-full
             border
-            border-white/20
-            bg-white/10
+            border-white/50
+            bg-white/30
             backdrop-blur-2xl
 
-            shadow-xl
+            shadow-lg
 
             transition
             hover:scale-110
-            hover:bg-white/20
+            hover:bg-white/40
           "
         >
           <ChevronRight className="size-6" />
