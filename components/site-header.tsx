@@ -92,21 +92,39 @@ export function SiteHeader() {
 
           {/* search */}
           <div className="relative hidden flex-1 md:block">
-            <Search className="absolute left-4 top-1/2 size-5 -translate-y-1/2 text-white/60" />
-            <input
-              className="
-              w-full
-              rounded-full
-              border
-              border-white/10
-              bg-white/10
-              py-3 pl-12 pr-4
-              text-white
-              backdrop-blur-xl
-              outline-none
-            "
-              placeholder="Search toys..."
-            />
+            <div className="relative">
+              
+              {/* ICON */}
+              <Search
+                className="
+                  pointer-events-none
+                  absolute left-4 top-1/2
+                  z-20
+                  size-5 -translate-y-1/2
+                  text-white
+                "
+              />
+
+              {/* INPUT */}
+              <input
+                className="
+                  relative z-10
+
+                  w-full
+                  rounded-full
+                  border border-white/20
+
+                  bg-white/30
+                  backdrop-blur-xl
+
+                  py-3 pl-12 pr-4
+                  text-white
+
+                  outline-none
+                "
+                placeholder="Search toys..."
+              />
+            </div>
           </div>
 
           {/* icons */}
