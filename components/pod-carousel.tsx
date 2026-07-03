@@ -153,6 +153,7 @@ export function PodCarousel() {
             transition
             hover:scale-110
             hover:bg-white/40
+            cursor-pointer
           "
         >
           <ChevronLeft className="size-6" />
@@ -186,6 +187,7 @@ export function PodCarousel() {
             transition
             hover:scale-110
             hover:bg-white/40
+            cursor-pointer
           "
         >
           <ChevronRight className="size-6" />
