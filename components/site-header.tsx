@@ -13,6 +13,7 @@ import {
   ChevronLeft,
 } from "lucide-react"
 import Image from "next/image"
+import Link from "next/link"
 
 const navLinks = [
   {
@@ -81,7 +82,7 @@ export function SiteHeader() {
           </button>
 
           {/* logo */}
-          <a href="#" className="shrink-0">
+          <a href="/" className="shrink-0">
             <Image
               src="https://www.thetoyshop.com/medias/entertainer-logo-secondary-BTS-1-.png?context=bWFzdGVyfGltYWdlc3wxNjcxNDN8aW1hZ2UvcG5nfGFHSmxMMmhoWXk4eE1qWTNPRGt6TkRJd01ETTFNQzlsYm5SbGNuUmhhVzVsY2kxc2IyZHZMWE5sWTI5dVpHRnllUzFDVkZNdE1TMHVjRzVufDIyOWZjZDk5YmZlZWNmYWI2ZTU0NGJhMjhlMTcyMmNjYzdhNDdlMGJkODBiOWIyODlmMWQ5MzFjNjgxZTc2YTU"
               width={180}
@@ -154,9 +155,9 @@ export function SiteHeader() {
               onMouseLeave={() => setActiveMenu(null)}
             >
 
-              <button className="rounded-full px-5 py-2 font-bold text-white hover:bg-white/10 cursor-pointer">
+              <Link href="/category" className="rounded-full px-5 py-2 font-bold text-white hover:bg-white/10 cursor-pointer">
                 {item.label}
-              </button>
+              </Link>
 
 
               <div className="absolute left-0 top-full h-6 w-full" />
@@ -198,7 +199,7 @@ export function SiteHeader() {
                         {item.children.map((c) => (
                           <a
                             key={c}
-                            href="#"
+                            href="/category"
                             className="
                             block
                             rounded-xl
@@ -332,7 +333,7 @@ export function SiteHeader() {
                   {activeMobile?.children.map((c) => (
                     <a
                       key={c}
-                      href="#"
+                      href="/category"
                       className="
                       block
                       rounded-2xl
