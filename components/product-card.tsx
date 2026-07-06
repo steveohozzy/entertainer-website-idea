@@ -196,19 +196,21 @@ export function ProductCard({ product }: { product: Product }) {
 
         <div className="mt-auto flex items-end justify-between pt-5">
 
-          <div className="flex items-baseline gap-2">
+          <div className="flex flex-col-reverse items-baseline">
 
             <span className="
-              text-2xl
+              text-xl
               font-black
               text-foreground
+              md:text-2xl
             ">
               £{product.price.toFixed(2)}
             </span>
 
             {product.wasPrice && (
               <span className="
-                text-sm
+                text-xs
+                md:text-sm
                 font-medium
                 text-muted-foreground
                 line-through
