@@ -7,7 +7,7 @@ const categories = [
     count: "420+ toys",
     img: "/product-blocks.png",
     tone: "from-chart-3/20 to-chart-3/5",
-    span: "lg:col-span-2 lg:row-span-2",
+    span: "col-span-2 lg:row-span-2",
     large: true,
   },
   {
