@@ -186,10 +186,6 @@ export function CategoryGrid() {
                     >
                       {cat.name}
                     </h3>
-
-                    <p className="mt-1 text-sm font-semibold text-muted-foreground">
-                      {cat.count}
-                    </p>
                   </div>
 
                   <span
@@ -228,6 +224,7 @@ export function CategoryGrid() {
                     mx-auto
                     object-contain
                     drop-shadow-xl
+                    rounded-lg
 
                     transition-all
                     duration-700

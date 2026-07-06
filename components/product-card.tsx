@@ -144,7 +144,6 @@ export function ProductCard({ product }: { product: Product }) {
           fill
           className="
           object-contain
-          p-6
 
           transition-all
           duration-700
