@@ -84,6 +84,7 @@ export function SiteHeader() {
             className="lg:hidden rounded-full bg-white/10 p-3 text-white backdrop-blur-xl cursor-pointer"
           >
             <Menu />
+            <span className="sr-only">Menu</span>
           </button>
 
           {/* logo */}
