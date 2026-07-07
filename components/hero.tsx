@@ -152,6 +152,7 @@ export function Hero() {
                 className="object-cover"
                 priority
                 fetchPriority="high"
+                sizes="(max-width: 640px) calc((100vw - 48px) / 2), (max-width: 1024px) 50vw, 25vw"
               />
 
               {/* overlays */}
