@@ -146,7 +146,7 @@ export function Hero() {
             <div className="relative h-[420px] lg:h-[700px]">
 
               <Image
-                src="https://www.thetoyshop.com/medias/2026-p7-gta-preorder-pod-530x530.jpg?context=bWFzdGVyfHJvb3R8MjA2NDc5fGltYWdlL2pwZWd8YURZeUwyZ3lNUzh4TWpnd05EZzNNRFF3TmpFM05DOHlNREkyTFhBM0xXZDBZUzF3Y21WdmNtUmxjaTF3YjJRdE5UTXdlRFV6TUM1cWNHY3w1NzNjNzk5N2I0ZWU2NzllNGM3NDVhY2MxMjlkYmU3ZmU1ZjM5ZWYxNDIwZGJlZmQwNDVmNjRjOTU0MDYyZmJm"
+                src="/2026-p7-gta-preorder-pod-530x530.webp"
                 alt="GTA VI"
                 fill
                 className="object-cover"
