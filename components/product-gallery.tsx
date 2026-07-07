@@ -22,6 +22,10 @@ export function ProductGallery({
   const [selected, setSelected] = useState(0)
   const [liked, setLiked] = useState(false)
   const thumbnailRefs = useRef<(HTMLButtonElement | null)[]>([])
+  const [zoomOpen, setZoomOpen] = useState(false)
+  const [position, setPosition] = useState({ x: 0, y: 0 })
+  const [dragging, setDragging] = useState(false)
+  const start = useRef({ x: 0, y: 0 })
 
   const next = () =>
     setSelected((selected + 1) % images.length)
@@ -171,20 +175,23 @@ export function ProductGallery({
           </button>
 
           <button
+            onClick={() => {
+              if (zoomOpen) {
+                setPosition({ x: 0, y: 0 })
+              }
+
+              setZoomOpen(!zoomOpen)
+            }}
             className="
               grid
               h-12
               w-12
               place-items-center
-
               rounded-full
-
               border
               border-white/30
-
               bg-white/70
               backdrop-blur-xl
-
               transition
               hover:scale-110
               cursor-pointer
@@ -194,20 +201,34 @@ export function ProductGallery({
           </button>
 
           <button
+            onClick={async () => {
+              const shareData = {
+                title: document.title,
+                text: "Check out this product",
+                url: window.location.href,
+              }
+
+              try {
+                if (navigator.share) {
+                  await navigator.share(shareData)
+                } else {
+                  await navigator.clipboard.writeText(window.location.href)
+                  alert("Product link copied to clipboard!")
+                }
+              } catch (err) {
+                // user cancelled
+              }
+            }}
             className="
               grid
               h-12
               w-12
               place-items-center
-
               rounded-full
-
               border
               border-white/30
-
               bg-white/70
               backdrop-blur-xl
-
               transition
               hover:scale-110
               cursor-pointer
@@ -294,21 +315,66 @@ export function ProductGallery({
 
         {/* image */}
 
-        <div className="relative h-full w-full">
+        <div
+  className={`relative h-full w-full ${
+    zoomOpen ? "cursor-grab active:cursor-grabbing" : ""
+  }`}
+  onMouseDown={(e) => {
+    if (!zoomOpen) return
+
+    setDragging(true)
+
+    start.current = {
+      x: e.clientX - position.x,
+      y: e.clientY - position.y,
+    }
+  }}
+  onMouseMove={(e) => {
+    if (!dragging) return
+
+    setPosition({
+      x: e.clientX - start.current.x,
+      y: e.clientY - start.current.y,
+    })
+  }}
+  onMouseUp={() => setDragging(false)}
+  onMouseLeave={() => setDragging(false)}
+  onTouchStart={(e) => {
+    if (!zoomOpen) return
+
+    const touch = e.touches[0]
+
+    start.current = {
+      x: touch.clientX - position.x,
+      y: touch.clientY - position.y,
+    }
+  }}
+  onTouchMove={(e) => {
+    if (!zoomOpen) return
+
+    const touch = e.touches[0]
+
+    setPosition({
+      x: touch.clientX - start.current.x,
+      y: touch.clientY - start.current.y,
+    })
+  }}
+>
 
           <Image
-            key={selected}
-            src={images[selected]}
-            alt=""
-            fill
-            priority
-            className="
-              object-contain
-
-              transition-transform
-              duration-700
-            "
-          />
+  key={selected}
+  src={images[selected]}
+  alt=""
+  fill
+  priority
+  draggable={false}
+  className="object-contain transition-transform duration-300 select-none"
+  style={{
+    transform: zoomOpen
+      ? `translate(${position.x}px, ${position.y}px) scale(2)`
+      : "translate(0,0) scale(1)",
+  }}
+/>
 
         </div>
 
