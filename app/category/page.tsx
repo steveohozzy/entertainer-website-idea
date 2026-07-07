@@ -199,8 +199,9 @@ export default function PLPPage() {
           </button>
 
           <div className="relative inline-block">
-            <label className="sr-only">Sort by</label>
+            <label htmlFor="sort" className="sr-only">Sort by</label>
             <select
+              id="sort"
               value={sort}
               onChange={(e) => setSort(e.target.value)}
               className="
