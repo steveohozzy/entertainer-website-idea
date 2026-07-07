@@ -157,6 +157,7 @@ export function PodCarousel() {
           "
         >
           <ChevronLeft className="size-6" />
+          <span className="sr-only">Previous</span>
         </button>
 
         {/* right glass arrow */}
@@ -191,6 +192,7 @@ export function PodCarousel() {
           "
         >
           <ChevronRight className="size-6" />
+          <span className="sr-only">Next</span>
         </button>
 
         {/* carousel */}
