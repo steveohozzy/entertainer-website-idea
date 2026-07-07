@@ -11,7 +11,7 @@ export type Product = {
   wasPrice?: number
   rating: number
   reviews: number
-  age: string
+  brand: string
   badge?: string
 }
 
@@ -164,7 +164,7 @@ export function ProductCard({ product }: { product: Product }) {
           tracking-[0.15em]
           text-primary
         ">
-          {product.age}
+          {product.brand}
         </span>
 
         <h3 className="

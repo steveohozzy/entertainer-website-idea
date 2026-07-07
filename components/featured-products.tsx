@@ -9,7 +9,7 @@ const products: Product[] = [
     wasPrice: 34.99,
     rating: 4.9,
     reviews: 812,
-    age: "Age 3+",
+    brand: "LEGO",
     badge: "Bestseller",
   },
   {
@@ -18,7 +18,7 @@ const products: Product[] = [
     price: 16.99,
     rating: 4.8,
     reviews: 1204,
-    age: "Age 0+",
+    brand: "TONIES",
     badge: "New",
   },
   {
@@ -28,7 +28,7 @@ const products: Product[] = [
     wasPrice: 39.99,
     rating: 4.9,
     reviews: 540,
-    age: "Age 2+",
+    brand: "BARBIE",
     badge: "-25%",
   },
   {
@@ -37,7 +37,7 @@ const products: Product[] = [
     price: 12.99,
     rating: 4.7,
     reviews: 366,
-    age: "Age 1+",
+    brand: "ADDO",
   },
 ]
 

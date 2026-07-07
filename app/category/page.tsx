@@ -12,7 +12,7 @@ const products: Product[] = [
     wasPrice: 34.99,
     rating: 4.9,
     reviews: 812,
-    age: "Age 3+",
+    brand: "LEGO",
     badge: "Bestseller",
   },
   {
@@ -21,7 +21,7 @@ const products: Product[] = [
     price: 16.99,
     rating: 4.8,
     reviews: 1204,
-    age: "Age 0+",
+    brand: "TONIES",
     badge: "New",
   },
   {
@@ -31,7 +31,7 @@ const products: Product[] = [
     wasPrice: 39.99,
     rating: 4.9,
     reviews: 540,
-    age: "Age 2+",
+    brand: "ADDO",
     badge: "-25%",
   },
   {
@@ -40,7 +40,7 @@ const products: Product[] = [
     price: 12.99,
     rating: 4.7,
     reviews: 366,
-    age: "Age 1+",
+    brand: "BARBIE",
   },
   {
     name: "Rainbow Rocket Adventure Playset",
@@ -49,7 +49,7 @@ const products: Product[] = [
     wasPrice: 34.99,
     rating: 4.9,
     reviews: 812,
-    age: "Age 3+",
+    brand: "HOT WHEELS",
     badge: "Bestseller",
   },
   {
@@ -58,7 +58,7 @@ const products: Product[] = [
     price: 16.99,
     rating: 4.8,
     reviews: 1204,
-    age: "Age 0+",
+    brand: "ZURU",
     badge: "New",
   },
   {
@@ -68,7 +68,7 @@ const products: Product[] = [
     wasPrice: 39.99,
     rating: 4.9,
     reviews: 540,
-    age: "Age 2+",
+    brand: "LEGO",
     badge: "-25%",
   },
   {
@@ -77,7 +77,7 @@ const products: Product[] = [
     price: 12.99,
     rating: 4.7,
     reviews: 366,
-    age: "Age 1+",
+    brand: "ADDO",
   },
   {
     name: "Rainbow Rocket Adventure Playset",
@@ -86,7 +86,7 @@ const products: Product[] = [
     wasPrice: 34.99,
     rating: 4.9,
     reviews: 812,
-    age: "Age 3+",
+    brand: "ELC",
     badge: "Bestseller",
   },
   {
@@ -95,7 +95,7 @@ const products: Product[] = [
     price: 16.99,
     rating: 4.8,
     reviews: 1204,
-    age: "Age 0+",
+    brand: "HOT WHEELS",
     badge: "New",
   },
   {
@@ -105,7 +105,7 @@ const products: Product[] = [
     wasPrice: 39.99,
     rating: 4.9,
     reviews: 540,
-    age: "Age 2+",
+    brand: "ELC",
     badge: "-25%",
   },
   {
@@ -114,7 +114,7 @@ const products: Product[] = [
     price: 12.99,
     rating: 4.7,
     reviews: 366,
-    age: "Age 1+",
+    brand: "ADDO",
   },
 ]
 
