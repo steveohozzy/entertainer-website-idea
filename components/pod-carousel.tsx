@@ -9,42 +9,42 @@ const items = [
     title: "Pre-Order Grand Theft Auto VI",
     image:
       "https://www.thetoyshop.com/medias/515Wx515H-578267-578267-6.jpg?context=bWFzdGVyfGltYWdlc3wxMDE1NTB8aW1hZ2UvanBlZ3xhR0ZoTDJnNE1TOHhNamMwTlRnek5UYzBNVEl4TkM4MU1UVlhlRFV4TlVoZk5UYzRNalkzWHpVM09ESTJOeTAyTG1wd1p3fGMxN2I0OGNiMjkxODdjMTczZDRjY2UzNzI3Yjc1YTliMDRiMTU3MzVhMmIzNzA5MjRjMjliNjUyYWQxNGI2Nzg",
-    href: "#",
+    href: "/category",
     background: "bg-primary/40",
   },
   {
     title: "Hot Wheels Mega Track Set",
     image:
       "https://www.thetoyshop.com/medias/2026-p8-nook-nooks-pod-500x500.jpg?context=bWFzdGVyfHJvb3R8MzAxMDg2fGltYWdlL2pwZWd8YURnMkwyZzBZUzh4TWpjNE1qQXhOekkwT1RNeE1DOHlNREkyTFhBNExXNXZiMnN0Ym05dmEzTXRjRzlrTFRVd01IZzFNREF1YW5Cbnw4ZjBiOGY0ZDljOGNmOTQxMTJjOWM4NDNhZDkxYjJmOGY0YmQ1N2NkYWFmMWNmZWY3Nzk5YzNlYTMzMzU0YTVj",
-    href: "#",
+    href: "/category",
     background: "bg-pink-500/40",
   },
   {
     title: "LEGO City Adventures",
     image:
       "https://www.thetoyshop.com/medias/xootz-scooters-all.jpg?context=bWFzdGVyfHJvb3R8OTYzOTl8aW1hZ2UvanBlZ3xhR1EzTDJoaVpTOHhNalkwTXpnek9UWXdOamd4TkM5NGIyOTBlaUJ6WTI5dmRHVnljeUJoYkd3dWFuQm58MmZhNmE4NDdkNzMyNjhiOGJlYTJhM2Y1MjAzZDE1NDhkODAzNTNiNTNjOTllYmM2NjVlYjhjMjUxMDRmMjk4MQ",
-    href: "#",
+    href: "/category",
     background: "bg-purple-500/40",
   },
   {
     title: "Limited Time Offers",
     image:
       "https://www.thetoyshop.com/medias/2026-p3-f1-pod-410x410.jpg?context=bWFzdGVyfHJvb3R8MTA5NDY4fGltYWdlL2pwZWd8YURBNEwyaGhaQzh4TWpjd056azJOamd4TWpFNU1DOHlNREkyTFhBekxXWXhMWEJ2WkMwME1UQjROREV3TG1wd1p3fGU1M2E4ODgxYjMzODQxYTFlYWFkNGU2YjZlM2JmZjJkZmYyMjU0ZGQ4ODkxNzllNjYzNjNjMGVjNGVhZjcwNzI",
-    href: "#",
+    href: "/category",
     background: "bg-yellow-500/40",
   },
   {
     title: "LEGO City Adventures",
     image:
       "https://www.thetoyshop.com/medias/2026-fuggler-baddies-pod-500x500.jpg?context=bWFzdGVyfHJvb3R8MTU1MDE1fGltYWdlL2pwZWd8YUdVM0wyZzJOUzh4TWpjNU1qazROelU0TWpRNU5DOHlNREkyTFdaMVoyZHNaWEl0WW1Ga1pHbGxjeTF3YjJRdE5UQXdlRFV3TUM1cWNHY3xhZWVlNDJiMWFhOTU0MDkyYTY3Mjk4ZTI1MWQ3MjFhNjY0MDc1YmEyY2U3Nzk1MGQzYzhmOGIzMjQwM2Y2Yzk0",
-    href: "#",
+    href: "/category",
     background: "bg-red-500/40",
   },
   {
     title: "LEGO City Adventures",
     image:
       "https://www.thetoyshop.com/medias/ENT-MoanaLA-Digital-BannersWeb-Pod-w500x500h.jpg?context=bWFzdGVyfHJvb3R8MTMwODMwfGltYWdlL2pwZWd8YURCbEwyaGlPUzh4TWpjME56Y3dORFV6TXpBeU1pOUZUbFJmVFc5aGJtRk1RVjlFYVdkcGRHRnNYMEpoYm01bGNuTlhaV0lnVUc5a0xYYzFNREI0TlRBd2FDNXFjR2N8N2ZlODI2MzExZjNlNTdmNmJhZDQxN2JhY2MyZDVlZmE4OGE2MDI0ZTc4YzEzOTUxMzAzOGUzMThjMTIyMTJmNg",
-    href: "#",
+    href: "/category",
     background: "bg-blue-500/40",
   },
 ]

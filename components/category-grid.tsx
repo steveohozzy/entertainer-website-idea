@@ -78,7 +78,7 @@ export function CategoryGrid() {
 
             <a
               key={cat.name}
-              href="#categories"
+              href="/category"
               className={`
               group
               relative
