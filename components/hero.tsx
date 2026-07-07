@@ -1,11 +1,12 @@
 import Image from "next/image"
 import { ArrowRight } from "lucide-react"
+import Link from "next/link"
 
 export function Hero() {
   return (
     <section className="relative overflow-hidden">
 
-      <div className="">
+      <Link href="#">
 
         <div className="
           relative
@@ -140,7 +141,7 @@ export function Hero() {
           </div>
 
         </div>
-      </div>
+      </Link>
 
     </section>
   )
