@@ -1,12 +1,13 @@
 import Image from "next/image"
+import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 
 export function PromoBanner() {
   return (
     <section className="mx-auto max-w-7xl px-4 py-14">
 
-      <a
-        href="#"
+      <Link
+        href="/category"
         className="
           group
           relative
@@ -231,7 +232,7 @@ export function PromoBanner() {
           </div>
         </div>
 
-      </a>
+      </Link>
 
     </section>
   )
