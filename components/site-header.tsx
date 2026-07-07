@@ -87,14 +87,14 @@ export function SiteHeader() {
           </button>
 
           {/* logo */}
-          <a href="/" className="shrink-0">
+          <Link href="/" className="shrink-0">
             <Image
               src="https://www.thetoyshop.com/medias/entertainer-logo-secondary-BTS-1-.png?context=bWFzdGVyfGltYWdlc3wxNjcxNDN8aW1hZ2UvcG5nfGFHSmxMMmhoWXk4eE1qWTNPRGt6TkRJd01ETTFNQzlsYm5SbGNuUmhhVzVsY2kxc2IyZHZMWE5sWTI5dVpHRnllUzFDVkZNdE1TMHVjRzVufDIyOWZjZDk5YmZlZWNmYWI2ZTU0NGJhMjhlMTcyMmNjYzdhNDdlMGJkODBiOWIyODlmMWQ5MzFjNjgxZTc2YTU"
               width={180}
               height={40}
               alt="Logo"
             />
-          </a>
+          </Link>
 
           {/* search */}
           <div className="relative hidden flex-1 md:block">
