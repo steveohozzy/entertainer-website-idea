@@ -49,7 +49,8 @@
 }
 
 :root {
-   --site-header-height: 150px;
+  --mobile-site-header-height: 116px;
+  --site-header-height: 150px;
   color-scheme: light;
   --background: oklch(0.98 0.012 85);
   --foreground: #053053;
