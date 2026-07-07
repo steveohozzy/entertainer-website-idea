@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import Image from "next/image"
+import Link from "next/link"
 import { Heart, Plus, Star } from "lucide-react"
 
 export type Product = {
@@ -20,7 +21,8 @@ export function ProductCard({ product }: { product: Product }) {
   const [added, setAdded] = useState(false)
 
   return (
-    <div
+    <Link
+      href={`/product/${product.name}`}
       className="
       group
       relative
@@ -257,6 +259,6 @@ export function ProductCard({ product }: { product: Product }) {
         </div>
 
       </div>
-    </div>
+    </Link>
   )
 }
