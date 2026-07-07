@@ -70,7 +70,7 @@ export function SiteHeader() {
           relative
           border-b
           border-white/15
-          bg-[rgba(3,49,105,0.75)]
+          bg-foreground/75
           backdrop-blur-3xl
           shadow-[0_20px_60px_rgba(0,0,0,.35)]
           overflow-visible
@@ -118,7 +118,7 @@ export function SiteHeader() {
                   w-full
                   rounded-full
                   border border-white/20
-                  bg-white/30
+                  bg-white/10
                   backdrop-blur-xl
                   py-3 pl-12 pr-4
                   text-white
