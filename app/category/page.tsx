@@ -168,7 +168,7 @@ export default function PLPPage() {
       {/* =========================
           FILTER BAR (STICKY GLASS)
       ========================== */}
-      <div className="sticky top-[var(--site-header-height)] z-50 px-4">
+      <div className="sticky top-[var(--site-header-height)] z-20 px-4">
         <div className="
           mx-auto max-w-7xl
           flex items-center justify-between
