@@ -167,20 +167,20 @@ export function Hero() {
             </div>
 
             {/* floating badge */}
-            <div className="absolute right-10 top-10 hidden lg:block">
+            <div className="absolute right-10 top-10 block">
 
-            <div className="rounded-full bg-primary px-6 py-6 text-center text-primary-foreground shadow-2xl">
-              <div className="text-5xl font-black">50%</div>
+            <div className="rounded-full bg-primary px-6 py-6 text-center text-primary-foreground shadow-2xl aspect-square flex flex-col items-center justify-center">
+              <div className="text-2xl lg:text-5xl font-black">50%</div>
               <div className="text-xs font-bold tracking-[0.3em]">OFF</div>
             </div>
 
           </div>
 
-          <div className="absolute bottom-10 right-20 hidden rotate-[-8deg] lg:block">
+          <div className="absolute bottom-5 lg:bottom-10 right-5 lg:right-20 rotate-[-8deg] block">
 
-            <div className="rounded-2xl bg-yellow-400 px-5 py-4 font-black text-black shadow-xl">
+            <div className="rounded-2xl bg-yellow-400 px-5 py-4 font-black text-black shadow-xl lg:text-lg">
               LIMITED TIME
-              <div className="text-xs font-medium opacity-70">Ends soon</div>
+              <div className="text-xs lg:text-sm font-medium opacity-70">Ends soon</div>
             </div>
 
           </div>
