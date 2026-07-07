@@ -92,8 +92,8 @@ export function ProductGallery({
           <span
             className="
               absolute
-              left-6
-              top-6
+              left-3
+              top-4
               z-20
 
               rounded-full
@@ -117,8 +117,8 @@ export function ProductGallery({
         <span
           className="
             absolute
-            bottom-6
-            left-6
+            bottom-4
+            left-3
             z-20
 
             rounded-full
@@ -138,7 +138,7 @@ export function ProductGallery({
 
         {/* action buttons */}
 
-        <div className="absolute right-6 top-6 z-20 flex flex-col gap-3">
+        <div className="absolute right-3 top-4 z-20 flex flex-col gap-3">
 
           <button
             onClick={() => setLiked(!liked)}
