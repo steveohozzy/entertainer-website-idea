@@ -172,7 +172,7 @@ export function ProductCard({ product }: { product: Product }) {
           {product.brand}
         </span>
 
-        <h3 className="
+        <div className="
           mt-2
           line-clamp-2
           text-base
@@ -181,7 +181,7 @@ export function ProductCard({ product }: { product: Product }) {
           text-foreground
         ">
           {product.name}
-        </h3>
+        </div>
 
         <div className="mt-3 flex items-center gap-1.5">
           <Star
