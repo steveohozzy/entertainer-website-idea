@@ -145,7 +145,7 @@ export function SiteHeader() {
                     items-center
                     gap-2
                     rounded-full
-                    bg-primary
+                    bg-foreground
                     px-4
                     py-2
                     font-bold
