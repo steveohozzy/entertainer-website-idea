@@ -156,8 +156,8 @@ export function ProductCard({ product, priority }: { product: Product, priority?
           group-hover:scale-110
         "
           sizes="(max-width: 640px) calc((100vw - 48px) / 2), (max-width: 1024px) 50vw, 25vw"
-
-          fetchPriority={priority ? "high" : "low"}
+          preload={priority}
+          fetchPriority={priority ? "high" : undefined}
         />
       </div>
 
