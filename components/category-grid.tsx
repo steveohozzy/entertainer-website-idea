@@ -216,7 +216,7 @@ export function CategoryGrid() {
 
                 <Image
                   src={cat.img || "/placeholder.svg"}
-                  alt={cat.name}
+                  alt={cat.name + " image"}
                   width={cat.large ? 420 : 220}
                   height={cat.large ? 420 : 220}
                   className={`
