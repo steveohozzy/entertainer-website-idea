@@ -4,7 +4,7 @@ import { ArrowUpRight } from "lucide-react"
 const products: Product[] = [
   {
     name: "Rainbow Rocket Adventure Playset",
-    img: "/product-rocket.png",
+    img: "/product-rocket.webp",
     price: 24.99,
     wasPrice: 34.99,
     rating: 4.9,
@@ -14,7 +14,7 @@ const products: Product[] = [
   },
   {
     name: "Cuddle Club Super Soft Teddy Bear",
-    img: "/product-plush.png",
+    img: "/product-plush.webp",
     price: 16.99,
     rating: 4.8,
     reviews: 1204,
@@ -23,7 +23,7 @@ const products: Product[] = [
   },
   {
     name: "Little Builders Wooden Block Set",
-    img: "/product-blocks.png",
+    img: "/product-blocks.webp",
     price: 29.99,
     wasPrice: 39.99,
     rating: 4.9,
@@ -33,7 +33,7 @@ const products: Product[] = [
   },
   {
     name: "Speedy Racer Chunky Toy Car",
-    img: "/product-car.png",
+    img: "/product-car.webp",
     price: 12.99,
     rating: 4.7,
     reviews: 366,

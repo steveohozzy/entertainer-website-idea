@@ -72,7 +72,7 @@ export function PromoBanner() {
           "
         >
           <Image
-            src="/promo-outdoor.png"
+            src="/promo-outdoor.webp"
             alt="Promo"
             fill
             className="

@@ -5,7 +5,7 @@ const categories = [
   {
     name: "Building & Blocks",
     count: "420+ toys",
-    img: "/product-blocks.png",
+    img: "/product-blocks.webp",
     tone: "from-chart-3/20 to-chart-3/5",
     span: "col-span-2 lg:row-span-2",
     large: true,
@@ -13,25 +13,25 @@ const categories = [
   {
     name: "Soft & Plush",
     count: "260+ toys",
-    img: "/product-plush.png",
+    img: "/product-plush.webp",
     tone: "from-chart-5/20 to-chart-5/5",
   },
   {
     name: "Cars & Vehicles",
     count: "310+ toys",
-    img: "/product-car.png",
+    img: "/product-car.webp",
     tone: "from-chart-1/20 to-chart-1/5",
   },
   {
     name: "Arts & Crafts",
     count: "190+ toys",
-    img: "/product-art.png",
+    img: "/product-art.webp",
     tone: "from-chart-4/20 to-chart-4/5",
   },
   {
     name: "Games & Puzzles",
     count: "230+ toys",
-    img: "/product-games.png",
+    img: "/product-games.webp",
     tone: "from-chart-2/20 to-chart-2/5",
   },
 ]
