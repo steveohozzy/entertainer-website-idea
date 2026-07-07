@@ -14,6 +14,8 @@ import {
 } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
+import { MiniCart } from "@/components/mini-cart"
+import { useCart } from "./cart-provider"
 
 const navLinks = [
   {
@@ -44,6 +46,8 @@ export function SiteHeader() {
   const [mobileLevel, setMobileLevel] = useState<string | null>(null)
 
   const activeMobile = navLinks.find((x) => x.label === mobileLevel)
+
+  const { setOpenMiniCart } = useCart()
 
   return (
     <header className="sticky top-0 z-50 w-full overflow-x-clip">
@@ -134,10 +138,32 @@ export function SiteHeader() {
             <User className="hidden sm:block cursor-pointer" />
             <Heart className="cursor-pointer" />
 
-            <button className="flex items-center gap-2 rounded-full bg-primary px-4 py-2 font-bold">
-              <ShoppingBag className="size-5" />
-              3
-            </button>
+            <div className="relative"
+            
+              onMouseEnter={() => setOpenMiniCart(true)}
+            
+            >
+
+              <button
+                className="
+                  flex
+                  items-center
+                  gap-2
+                  rounded-full
+                  bg-primary
+                  px-4
+                  py-2
+                  font-bold
+                "
+              >
+                <ShoppingBag className="size-5" />
+                3
+              </button>
+
+
+              <MiniCart />
+
+            </div>
 
           </div>
 

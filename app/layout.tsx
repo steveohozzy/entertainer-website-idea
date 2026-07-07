@@ -5,6 +5,7 @@ import './globals.css'
 
 import { SiteHeader } from '@/components/site-header'
 import { SiteFooter} from '@/components/site-footer'
+import { CartProvider } from "@/components/cart-provider"
 
 const fredoka = Fredoka({
   variable: '--font-fredoka',
@@ -66,17 +67,20 @@ export default function RootLayout({
     >
       <body className="font-sans antialiased bg-background text-foreground">
 
-        {/* GLOBAL SHELL */}
+        <CartProvider>
         <SiteHeader />
 
-        {/* PAGE CONTENT */}
         <main className="min-h-screen">
           {children}
         </main>
 
         <SiteFooter />
 
+      </CartProvider>
+
+
         {process.env.NODE_ENV === 'production' && <Analytics />}
+
       </body>
     </html>
   )

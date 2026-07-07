@@ -4,6 +4,7 @@ import { useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { Heart, Plus, Star } from "lucide-react"
+import {useCart} from "./cart-provider"
 
 export type Product = {
   name: string
@@ -19,6 +20,8 @@ export type Product = {
 export function ProductCard({ product }: { product: Product }) {
   const [liked, setLiked] = useState(false)
   const [added, setAdded] = useState(false)
+
+  const { addToCart } = useCart()
 
   return (
     <Link
@@ -224,7 +227,20 @@ export function ProductCard({ product }: { product: Product }) {
 
           <button
             type="button"
-            onClick={() => setAdded(true)}
+            onClick={(e) => {
+              e.preventDefault()
+              e.stopPropagation()
+
+              addToCart({
+                id: product.name,
+                name: product.name,
+                img: product.img,
+                price: product.price,
+                quantity: 1,
+              })
+
+              setAdded(true)
+            }}
             aria-label={`Add ${product.name} to basket`}
             className={`
             grid
