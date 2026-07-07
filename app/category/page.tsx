@@ -365,7 +365,7 @@ export default function PLPPage() {
       <section className="mx-auto max-w-7xl px-4 pb-16">
         <div className="grid grid-cols-2 gap-5 md:grid-cols-3 lg:grid-cols-4">
           {products.map((p, i) => (
-            <ProductCard key={i} product={p} />
+            <ProductCard key={i} product={p} priority={i === 0} />
           ))}
         </div>
       </section>
