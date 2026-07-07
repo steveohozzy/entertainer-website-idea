@@ -132,6 +132,7 @@ export function StickyBuyBar({
             "
           >
             <Minus className="size-4" />
+            <span className="sr-only">Remove</span>
           </button>
 
 
@@ -166,6 +167,7 @@ export function StickyBuyBar({
             "
           >
             <Plus className="size-4" />
+            <span className="sr-only">Add</span>
           </button>
 
         </div>

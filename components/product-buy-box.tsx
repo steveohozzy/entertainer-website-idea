@@ -143,6 +143,7 @@ export function ProductBuyBox({
               className="p-4 hover:bg-muted rounded-l-full cursor-pointer"
             >
               <Minus className="size-4" />
+              <span className="sr-only">Remove</span>
             </button>
 
             <span className="w-10 text-center font-bold">
@@ -154,6 +155,7 @@ export function ProductBuyBox({
               className="p-4 hover:bg-muted rounded-r-full cursor-pointer"
             >
               <Plus className="size-4" />
+              <span className="sr-only">Add</span>
             </button>
 
           </div>
@@ -224,6 +226,7 @@ export function ProductBuyBox({
                   : ""
               }`}
             />
+            <span className="sr-only">Wishlist</span>
           </button>
 
         </div>
