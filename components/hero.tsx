@@ -16,6 +16,7 @@ export function Hero() {
           shadow-2xl
           bg-[#1E042D]
           lg:flex-row
+          group
         ">
 
           {/* =========================
@@ -34,7 +35,9 @@ export function Hero() {
 
             {/* glass card */}
             <div className="
+
               relative
+              overflow-hidden
               rounded-[2rem]
               border
               border-white/20
@@ -42,7 +45,51 @@ export function Hero() {
               backdrop-blur-3xl
               p-8
               shadow-xl
+              transition-all
+              duration-500
+              group-hover:-translate-y-1
             ">
+
+              {/* glass shine */}
+              <div
+                className="
+                  pointer-events-none
+                  absolute
+                  inset-0
+                  rounded-[2rem]
+                  bg-gradient-to-br
+                  from-white/25
+                  via-transparent
+                  to-transparent
+                "
+              />
+
+
+              {/* animated reflection sweep */}
+              <div
+                className="
+                  pointer-events-none
+                  absolute
+
+                  -left-[45%]
+                  top-0
+
+                  h-full
+                  w-[45%]
+
+                  rotate-12
+
+                  bg-white/20
+
+                  blur-3xl
+
+                  transition-all
+                  duration-[1400ms]
+                  ease-out
+
+                  group-hover:left-[130%]
+                "
+              />
 
               {/* glow */}
               <div className="pointer-events-none absolute -top-10 -left-10 h-40 w-40 rounded-full bg-primary/30 blur-3xl" />
