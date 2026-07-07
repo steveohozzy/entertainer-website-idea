@@ -91,11 +91,11 @@ export default function CartPage() {
                     </div>
 
                     <div className="flex items-center gap-3 rounded-full bg-white/60 border border-white/30 px-3 py-2">
-                      <button>
+                      <button className="cursor-pointer">
                         <Minus className="size-4" />
                       </button>
                       <span className="font-bold">{item.quantity}</span>
-                      <button>
+                      <button className="cursor-pointer">
                         <Plus className="size-4" />
                       </button>
                     </div>
@@ -192,7 +192,7 @@ export default function CartPage() {
                         placeholder="Enter code"
                         className="min-w-0 flex-1 rounded-full bg-white/20 px-4 py-2 text-sm text-white placeholder:text-white/50 outline-none"
                       />
-                      <button className="shrink-0 rounded-full bg-primary px-4 py-2 text-sm font-bold text-white">
+                      <button className="shrink-0 rounded-full bg-primary px-4 py-2 text-sm font-bold text-white cursor-pointer">
                         Apply
                       </button>
                     </div>

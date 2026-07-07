@@ -205,6 +205,7 @@ export function PromoBanner() {
                   backdrop-blur-xl
                   transition
                   hover:bg-white/30
+                  cursor-pointer
                 "
               >
                 Shop now

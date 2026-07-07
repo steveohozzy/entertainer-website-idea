@@ -170,6 +170,7 @@ export function ProductAccordion({
                 transition
 
                 hover:bg-white/40
+                cursor-pointer
               "
             >
 

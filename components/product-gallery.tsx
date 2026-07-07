@@ -158,6 +158,7 @@ export function ProductGallery({
 
               transition
               hover:scale-110
+              cursor-pointer
             "
           >
             <Heart
@@ -186,6 +187,7 @@ export function ProductGallery({
 
               transition
               hover:scale-110
+              cursor-pointer
             "
           >
             <Search className="size-5" />
@@ -208,6 +210,7 @@ export function ProductGallery({
 
               transition
               hover:scale-110
+              cursor-pointer
             "
           >
             <Share2 className="size-5" />
@@ -246,6 +249,7 @@ export function ProductGallery({
 
             transition
             hover:scale-110
+            cursor-pointer
           "
         >
           <ChevronLeft />
@@ -282,6 +286,7 @@ export function ProductGallery({
 
             transition
             hover:scale-110
+            cursor-pointer
           "
         >
           <ChevronRight />
@@ -368,7 +373,7 @@ export function ProductGallery({
 
                 transition-all
                 duration-300
-
+                cursor-pointer
 
                 ${
                   selected === i

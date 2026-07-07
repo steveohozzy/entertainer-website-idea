@@ -194,6 +194,7 @@ export default function PLPPage() {
               font-bold
               transition
               hover:bg-white/15
+              cursor-pointer
             "
           >
             <SlidersHorizontal className="size-4" />
@@ -258,7 +259,7 @@ export default function PLPPage() {
 
               <button
                 onClick={() => setFiltersOpen(false)}
-                className="rounded-full bg-white/10 p-2 hover:bg-white/20"
+                className="rounded-full bg-white/10 p-2 hover:bg-white/20 cursor-pointer"
               >
                 <X className="size-5 text-white" />
               </button>
@@ -292,6 +293,7 @@ export default function PLPPage() {
                         font-bold
                         hover:bg-white/10
                         transition
+                        cursor-pointer
                       "
                     >
                       {group.title}
@@ -327,6 +329,7 @@ export default function PLPPage() {
                             hover:text-white
                             transition
                             last:mb-4
+                            cursor-pointer
                           "
                         >
                           {opt}
@@ -348,6 +351,7 @@ export default function PLPPage() {
                 py-3
                 font-black
                 text-white
+                cursor-pointer
               ">
                 Apply Filters
               </button>

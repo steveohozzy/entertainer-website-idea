@@ -81,6 +81,7 @@ export function ProductReviews({
           md:justify-between
 
           md:p-8
+          cursor-pointer
         "
       >
 

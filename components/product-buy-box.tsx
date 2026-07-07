@@ -140,7 +140,7 @@ export function ProductBuyBox({
               onClick={() =>
                 setQty(Math.max(1, qty - 1))
               }
-              className="p-4 hover:bg-muted rounded-l-full"
+              className="p-4 hover:bg-muted rounded-l-full cursor-pointer"
             >
               <Minus className="size-4" />
             </button>
@@ -151,7 +151,7 @@ export function ProductBuyBox({
 
             <button
               onClick={() => setQty(qty + 1)}
-              className="p-4 hover:bg-muted rounded-r-full"
+              className="p-4 hover:bg-muted rounded-r-full cursor-pointer"
             >
               <Plus className="size-4" />
             </button>
@@ -170,7 +170,7 @@ export function ProductBuyBox({
               gap-2
               grow
               text-center
-
+              cursor-pointer
               rounded-full
 
               px-6
@@ -214,6 +214,7 @@ export function ProductBuyBox({
               shadow
               transition
               hover:scale-110
+              cursor-pointer
             "
           >
             <Heart
@@ -295,6 +296,7 @@ export function ProductBuyBox({
           transition
           hover:bg-primary
           hover:text-white
+          cursor-pointer
         "
       >
         Check Store Stock

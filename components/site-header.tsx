@@ -81,7 +81,7 @@ export function SiteHeader() {
           {/* mobile burger */}
           <button
             onClick={() => setOpen(true)}
-            className="lg:hidden rounded-full bg-white/10 p-3 text-white backdrop-blur-xl"
+            className="lg:hidden rounded-full bg-white/10 p-3 text-white backdrop-blur-xl cursor-pointer"
           >
             <Menu />
           </button>
@@ -292,7 +292,7 @@ export function SiteHeader() {
             {/* HEADER */}
             <div className="flex items-center justify-between p-6 text-white">
               <h2 className="text-xl font-black">Menu</h2>
-              <button onClick={() => setOpen(false)}>
+              <button onClick={() => setOpen(false)} className="cursor-pointer">
                 <X />
               </button>
             </div>
@@ -319,6 +319,7 @@ export function SiteHeader() {
                       px-5 py-4
                       text-white font-bold
                       backdrop-blur-xl
+                      cursor-pointer
                     "
                   >
                     {item.label}
@@ -337,7 +338,7 @@ export function SiteHeader() {
               >
                 <button
                   onClick={() => setMobileLevel(null)}
-                  className="mb-4 flex items-center gap-2 text-white font-bold"
+                  className="mb-4 flex items-center gap-2 text-white font-bold cursor-pointer"
                 >
                   <ChevronLeft /> Back
                 </button>

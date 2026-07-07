@@ -128,6 +128,7 @@ export function StickyBuyBar({
               transition
 
               hover:bg-white
+              cursor-pointer
             "
           >
             <Minus className="size-4" />
@@ -161,6 +162,7 @@ export function StickyBuyBar({
               transition
 
               hover:bg-white
+              cursor-pointer
             "
           >
             <Plus className="size-4" />
@@ -210,6 +212,7 @@ export function StickyBuyBar({
             transition-all
 
             hover:scale-105
+            cursor-pointer
 
             ${
               added
