@@ -47,7 +47,11 @@ export function SiteHeader() {
 
   const activeMobile = navLinks.find((x) => x.label === mobileLevel)
 
-  const { setOpenMiniCart } = useCart()
+  // Extract both setOpenMiniCart and the cart items from your provider context
+  const { setOpenMiniCart, items = [] } = useCart()
+
+  // Dynamically calculate the true sum of all item quantities in the basket
+  const totalItemsCount = items.reduce((acc, item) => acc + (item.quantity || 1), 0)
 
   return (
     <header className="sticky top-0 z-50 w-full overflow-x-clip">
@@ -63,17 +67,14 @@ export function SiteHeader() {
       {/* MAIN HEADER */}
       <div
         className="
-        relative
-        border-b
-        border-white/15
-
-        bg-[rgba(3,49,105,0.75)]
-        backdrop-blur-3xl
-
-        shadow-[0_20px_60px_rgba(0,0,0,.35)]
-
-        overflow-visible
-      "
+          relative
+          border-b
+          border-white/15
+          bg-[rgba(3,49,105,0.75)]
+          backdrop-blur-3xl
+          shadow-[0_20px_60px_rgba(0,0,0,.35)]
+          overflow-visible
+        "
       >
         <div className="mx-auto flex max-w-7xl items-center gap-4 px-4 py-3">
 
@@ -91,7 +92,7 @@ export function SiteHeader() {
               src="https://www.thetoyshop.com/medias/entertainer-logo-secondary-BTS-1-.png?context=bWFzdGVyfGltYWdlc3wxNjcxNDN8aW1hZ2UvcG5nfGFHSmxMMmhoWXk4eE1qWTNPRGt6TkRJd01ETTFNQzlsYm5SbGNuUmhhVzVsY2kxc2IyZHZMWE5sWTI5dVpHRnllUzFDVkZNdE1TMHVjRzVufDIyOWZjZDk5YmZlZWNmYWI2ZTU0NGJhMjhlMTcyMmNjYzdhNDdlMGJkODBiOWIyODlmMWQ5MzFjNjgxZTc2YTU"
               width={180}
               height={40}
-              alt=""
+              alt="Logo"
             />
           </a>
 
@@ -114,17 +115,13 @@ export function SiteHeader() {
               <input
                 className="
                   relative z-10
-
                   w-full
                   rounded-full
                   border border-white/20
-
                   bg-white/30
                   backdrop-blur-xl
-
                   py-3 pl-12 pr-4
                   text-white
-
                   outline-none
                 "
                 placeholder="Search toys..."
@@ -138,28 +135,30 @@ export function SiteHeader() {
             <User className="hidden sm:block cursor-pointer" />
             <Heart className="cursor-pointer" />
 
-            <div className="relative"
-            
-              onMouseEnter={() => setOpenMiniCart(true)}
-            
-            >
+            <div className="relative" onMouseEnter={() => setOpenMiniCart(true)}>
 
-              <button
-                className="
-                  flex
-                  items-center
-                  gap-2
-                  rounded-full
-                  bg-primary
-                  px-4
-                  py-2
-                  font-bold
-                "
-              >
-                <ShoppingBag className="size-5" />
-                3
-              </button>
-
+              {/* Wrapped Link with an onClick escape hatch to drop the mini-cart visibility state immediately */}
+              <Link href="/cart" onClick={() => setOpenMiniCart(false)}>
+                <button
+                  className="
+                    flex
+                    items-center
+                    gap-2
+                    rounded-full
+                    bg-primary
+                    px-4
+                    py-2
+                    font-bold
+                    transition-opacity
+                    hover:opacity-90
+                    cursor-pointer
+                  "
+                >
+                  <ShoppingBag className="size-5" />
+                  {/* Dynamic count live badge */}
+                  <span>{totalItemsCount}</span>
+                </button>
+              </Link>
 
               <MiniCart />
 
@@ -185,33 +184,26 @@ export function SiteHeader() {
                 {item.label}
               </Link>
 
-
               <div className="absolute left-0 top-full h-6 w-full" />
 
               {activeMenu === item.label && (
 
                 <div
                   className="
-                  absolute
-                  left-0
-                  top-full
-                  mt-2
-
-                  w-[780px]
-
-                  rounded-[28px]
-                  border
-                  border-white/15
-
-                  bg-[rgba(8,16,32,.9)]
-
-                  backdrop-blur-3xl
-
-                  shadow-[0_40px_120px_rgba(0,0,0,.5)]
-
-                  overflow-hidden
-                  z-50
-                "
+                    absolute
+                    left-0
+                    top-full
+                    mt-2
+                    w-[780px]
+                    rounded-[28px]
+                    border
+                    border-white/15
+                    bg-[rgba(8,16,32,.9)]
+                    backdrop-blur-3xl
+                    shadow-[0_40px_120px_rgba(0,0,0,.5)]
+                    overflow-hidden
+                    z-50
+                  "
                 >
 
                   <div className="grid grid-cols-2 gap-8 p-8">
@@ -227,14 +219,14 @@ export function SiteHeader() {
                             key={c}
                             href="/category"
                             className="
-                            block
-                            rounded-xl
-                            px-4 py-3
-                            text-white/80
-                            hover:bg-white/10
-                            hover:text-white
-                            transition
-                          "
+                              block
+                              rounded-xl
+                              px-4 py-3
+                              text-white/80
+                              hover:bg-white/10
+                              hover:text-white
+                              transition
+                            "
                           >
                             {c}
                           </a>
@@ -282,24 +274,19 @@ export function SiteHeader() {
           {/* drawer */}
           <div
             className="
-            absolute
-            left-0
-            top-0
-
-            h-full
-            w-full
-            max-w-[420px]
-
-            bg-[rgba(10,20,40,.96)]
-            backdrop-blur-3xl
-
-            border-r
-            border-white/10
-
-            shadow-[0_30px_90px_rgba(0,0,0,.55)]
-
-            overflow-hidden
-          "
+              absolute
+              left-0
+              top-0
+              h-full
+              w-full
+              max-w-[420px]
+              bg-[rgba(10,20,40,.96)]
+              backdrop-blur-3xl
+              border-r
+              border-white/10
+              shadow-[0_30px_90px_rgba(0,0,0,.55)]
+              overflow-hidden
+            "
           >
 
             {/* HEADER */}
@@ -316,23 +303,23 @@ export function SiteHeader() {
               {/* MAIN */}
               <div
                 className={`
-                absolute inset-0 px-4 space-y-2
-                transition-all duration-300
-                ${mobileLevel ? "-translate-x-full opacity-0" : "translate-x-0 opacity-100"}
-              `}
+                  absolute inset-0 px-4 space-y-2
+                  transition-all duration-300
+                  ${mobileLevel ? "-translate-x-full opacity-0" : "translate-x-0 opacity-100"}
+                `}
               >
                 {navLinks.map((item) => (
                   <button
                     key={item.label}
                     onClick={() => setMobileLevel(item.label)}
                     className="
-                    flex w-full justify-between
-                    rounded-2xl
-                    bg-white/10
-                    px-5 py-4
-                    text-white font-bold
-                    backdrop-blur-xl
-                  "
+                      flex w-full justify-between
+                      rounded-2xl
+                      bg-white/10
+                      px-5 py-4
+                      text-white font-bold
+                      backdrop-blur-xl
+                    "
                   >
                     {item.label}
                     <ChevronRight />
@@ -343,10 +330,10 @@ export function SiteHeader() {
               {/* SUB */}
               <div
                 className={`
-                absolute inset-0 px-4
-                transition-all duration-300
-                ${mobileLevel ? "translate-x-0 opacity-100" : "translate-x-full opacity-0"}
-              `}
+                  absolute inset-0 px-4
+                  transition-all duration-300
+                  ${mobileLevel ? "translate-x-0 opacity-100" : "translate-x-full opacity-0"}
+                `}
               >
                 <button
                   onClick={() => setMobileLevel(null)}
@@ -361,13 +348,13 @@ export function SiteHeader() {
                       key={c}
                       href="/category"
                       className="
-                      block
-                      rounded-2xl
-                      bg-white/10
-                      px-5 py-4
-                      text-white
-                      backdrop-blur-xl
-                    "
+                        block
+                        rounded-2xl
+                        bg-white/10
+                        px-5 py-4
+                        text-white
+                        backdrop-blur-xl
+                      "
                     >
                       {c}
                     </a>
