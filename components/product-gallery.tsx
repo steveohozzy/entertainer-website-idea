@@ -172,6 +172,7 @@ export function ProductGallery({
                   : ""
               }`}
             />
+            <span className="sr-only">Add to wishlist</span>
           </button>
 
           <button
@@ -198,6 +199,7 @@ export function ProductGallery({
             "
           >
             <Search className="size-5" />
+            <span className="sr-only">Zoom</span>
           </button>
 
           <button
@@ -235,6 +237,7 @@ export function ProductGallery({
             "
           >
             <Share2 className="size-5" />
+            <span className="sr-only">Share</span>
           </button>
 
         </div>
@@ -274,6 +277,7 @@ export function ProductGallery({
           "
         >
           <ChevronLeft />
+          <span className="sr-only">Previous</span>
         </button>
 
         {/* next */}
@@ -311,6 +315,7 @@ export function ProductGallery({
           "
         >
           <ChevronRight />
+          <span className="sr-only">Next</span>
         </button>
 
         {/* image */}
@@ -468,6 +473,7 @@ export function ProductGallery({
                   p-2
                 "
               />
+              <span className="sr-only">Image {i + 1}</span>
 
             </button>
 
