@@ -91,9 +91,6 @@ export function Hero() {
                 "
               />
 
-              {/* glow */}
-              <div className="pointer-events-none absolute -top-10 -left-10 h-40 w-40 rounded-full bg-primary/30 blur-3xl" />
-
               <h2 className="text-4xl font-black leading-[1] text-white">
                 Pre-Order <br />
                 <span className="text-primary">GTA VI</span>
