@@ -92,7 +92,7 @@ export function Hero() {
               />
 
               {/* glow */}
-              <div className="pointer-events-none absolute -top-10 -left-10 h-40 w-40 rounded-full bg-primary/30 blur-3xl" />
+              <div className="pointer-events-none absolute top-0 left-0 h-40 w-40 rounded-full bg-primary/30 blur-3xl" />
 
               <h2 className="text-4xl font-black leading-[1] text-white">
                 Pre-Order <br />
