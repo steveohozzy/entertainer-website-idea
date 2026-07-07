@@ -114,7 +114,7 @@ export function PodCarousel() {
           </h2>
 
         <a
-          href="#categories"
+          href="/category"
           className="hidden shrink-0 items-center gap-1 rounded-full border-2 border-border bg-card px-5 py-2.5 text-sm font-bold text-foreground transition hover:border-primary sm:inline-flex"
         >
           View all
