@@ -140,9 +140,7 @@ export function Hero() {
             </div>
           </div>
 
-          {/* =========================
-              IMAGE (2/3)
-          ========================== */}
+
           <div className="relative lg:w-2/3">
 
             <div className="relative h-[420px] lg:h-[700px]">
@@ -153,6 +151,7 @@ export function Hero() {
                 fill
                 className="object-cover"
                 priority
+                fetchPriority="high"
               />
 
               {/* overlays */}
