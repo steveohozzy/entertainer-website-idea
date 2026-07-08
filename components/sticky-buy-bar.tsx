@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import { ShoppingBag, Plus, Minus } from "lucide-react"
+import { useCart } from "@/components/cart-provider"
 
 type Product = {
   name: string
@@ -19,6 +20,8 @@ export function StickyBuyBar({
 
   const [quantity, setQuantity] = useState(1)
   const [added, setAdded] = useState(false)
+
+  const { addToCart } = useCart()
 
 
   return (
@@ -198,7 +201,21 @@ export function StickyBuyBar({
 
         <button
           type="button"
-          onClick={() => setAdded(true)}
+          onClick={() => {
+            addToCart({
+              id: product.name,
+              name: product.name,
+              img: "https://www.thetoyshop.com/medias/515Wx515H-582561-Primary?context=bWFzdGVyfGltYWdlc3wxMDkwODd8aW1hZ2UvanBlZ3xhR0poTDJnMk5pOHhNamM0TkRRM056RTNOVGd6T0M4MU1UVlhlRFV4TlVoZk5UZ3lOVFl4WDFCeWFXMWhjbmt8Nzg3Y2U2NmE3MTE4MTllYzRjNjY2NWE4ODQyODU3YjFmOWFhMjFkMjFiNDA2OTU0MTZhNGZmMDYwZWUzYTMyZQ",
+              price: product.price,
+              quantity,
+            })
+
+            setAdded(true)
+
+            setTimeout(() => {
+              setAdded(false)
+            }, 1500)
+          }}
           className={`
             flex
             items-center
