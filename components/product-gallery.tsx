@@ -26,6 +26,9 @@ export function ProductGallery({
   const [position, setPosition] = useState({ x: 0, y: 0 })
   const [dragging, setDragging] = useState(false)
   const start = useRef({ x: 0, y: 0 })
+  const [swipeOffset, setSwipeOffset] = useState(0)
+  const swipeStart = useRef({ x: 0, y: 0 })
+  const swiping = useRef(false)
 
   const next = () =>
     setSelected((selected + 1) % images.length)
@@ -344,26 +347,57 @@ export function ProductGallery({
   }}
   onMouseUp={() => setDragging(false)}
   onMouseLeave={() => setDragging(false)}
-  onTouchStart={(e) => {
-    if (!zoomOpen) return
+onTouchStart={(e) => {
+  const touch = e.touches[0]
 
-    const touch = e.touches[0]
-
+  if (zoomOpen) {
     start.current = {
       x: touch.clientX - position.x,
       y: touch.clientY - position.y,
     }
-  }}
-  onTouchMove={(e) => {
-    if (!zoomOpen) return
+    return
+  }
 
-    const touch = e.touches[0]
+  swipeStart.current = {
+    x: touch.clientX,
+    y: touch.clientY,
+  }
 
+  swiping.current = true
+}}
+onTouchMove={(e) => {
+  const touch = e.touches[0]
+
+  if (zoomOpen) {
     setPosition({
       x: touch.clientX - start.current.x,
       y: touch.clientY - start.current.y,
     })
-  }}
+    return
+  }
+
+  if (!swiping.current) return
+
+  const deltaX = touch.clientX - swipeStart.current.x
+  const deltaY = touch.clientY - swipeStart.current.y
+
+  // prevent horizontal drag interfering with vertical scrolling
+  if (Math.abs(deltaX) > Math.abs(deltaY)) {
+    setSwipeOffset(deltaX)
+  }
+}}
+onTouchEnd={() => {
+  if (zoomOpen) return
+
+  if (swipeOffset < -80) {
+    next()
+  } else if (swipeOffset > 80) {
+    prev()
+  }
+
+  setSwipeOffset(0)
+  swiping.current = false
+}}
 >
 
           <Image
@@ -375,6 +409,7 @@ export function ProductGallery({
   draggable={false}
   className="object-contain transition-transform duration-300 select-none"
   style={{
+    touchAction: zoomOpen ? "none" : "pan-y",
     transform: zoomOpen
       ? `translate(${position.x}px, ${position.y}px) scale(2)`
       : "translate(0,0) scale(1)",
