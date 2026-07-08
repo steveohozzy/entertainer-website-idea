@@ -103,3 +103,14 @@ section:nth-child(odd) {
     outline: 100vmax solid oklch(97.922% 0.01907 90.542);
     clip-path: inset(0 -100vmax);
 }
+
+/* Text selection */
+::selection {
+  background: var(--secondary);
+  color: var(--primary-foreground);
+}
+
+::-moz-selection {
+  background: var(--primary);
+  color: var(--primary-foreground);
+}
