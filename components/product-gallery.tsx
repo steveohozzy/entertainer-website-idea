@@ -327,6 +327,9 @@ export function ProductGallery({
   className={`relative h-full w-full ${
     zoomOpen ? "cursor-grab active:cursor-grabbing" : ""
   }`}
+   style={{
+    touchAction: zoomOpen ? "none" : "pan-y",
+  }}
   onMouseDown={(e) => {
     if (!zoomOpen) return
 
@@ -407,12 +410,15 @@ onTouchEnd={() => {
   fill
   priority
   draggable={false}
-  className="object-contain transition-transform duration-300 select-none"
+  className={`object-contain select-none ${
+    swipeOffset === 0
+      ? "transition-transform duration-300"
+      : ""
+  }`}
   style={{
-    touchAction: zoomOpen ? "none" : "pan-y",
     transform: zoomOpen
       ? `translate(${position.x}px, ${position.y}px) scale(2)`
-      : "translate(0,0) scale(1)",
+      : `translateX(${swipeOffset}px)`,
   }}
 />
 
