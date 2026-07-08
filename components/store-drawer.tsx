@@ -78,7 +78,7 @@ export function StoreDrawer({
           transition-opacity duration-300
           ${
             open
-              ? "opacity-100"
+              ? "opacity-100 h-full"
               : "pointer-events-none opacity-0"
           }
         `}
