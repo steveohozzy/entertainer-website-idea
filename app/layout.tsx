@@ -65,7 +65,7 @@ export default function RootLayout({
       lang="en"
       className={`${fredoka.variable} ${nunito.variable} ${geistMono.variable}`}
     >
-      <body className="font-sans antialiased bg-background text-foreground">
+      <body className="font-sans antialiased text-foreground">
 
         <CartProvider>
         <SiteHeader />

@@ -143,7 +143,7 @@ export default function PLPPage() {
   const [openGroup, setOpenGroup] = useState<string | null>(null)
 
   return (
-    <main className="min-h-screen bg-white text-foreground overflow-x-clip">
+    <main className="min-h-screen text-foreground overflow-x-clip">
 
       {/* =========================
           HERO

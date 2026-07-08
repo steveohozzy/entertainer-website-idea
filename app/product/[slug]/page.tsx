@@ -55,7 +55,7 @@ export default function ProductPage() {
   const [storeDrawerOpen, setStoreDrawerOpen] = useState(false)
 
   return (
-    <main className="bg-white">
+    <main>
 
       {/* MOBILE ONLY */}
       <div className="lg:hidden">

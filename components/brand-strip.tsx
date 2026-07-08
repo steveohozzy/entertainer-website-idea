@@ -11,7 +11,7 @@ const brands = [
 
 export function BrandStrip() {
   return (
-    <section id="brands" className="border-y border-border bg-background py-10">
+    <section id="brands" className="border-y border-border py-10">
       <div className="mx-auto max-w-7xl px-4">
         <p className="mb-6 text-center text-sm font-bold uppercase tracking-widest text-muted-foreground">
           Home to the brands kids love

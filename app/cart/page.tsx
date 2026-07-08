@@ -39,7 +39,7 @@ export default function CartPage() {
   const total = subtotal + deliveryCost;
 
   return (
-    <main className="bg-white min-h-screen">
+    <main className="min-h-screen">
       {/* breadcrumb */}
       <section className="mx-auto max-w-7xl px-4 pt-8 text-sm text-muted-foreground">
         Home / Basket
