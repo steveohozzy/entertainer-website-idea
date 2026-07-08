@@ -27,16 +27,40 @@ export function ProductGallery({
   const [dragging, setDragging] = useState(false)
   const start = useRef({ x: 0, y: 0 })
   const [swipeOffset, setSwipeOffset] = useState(0)
-  const swipeStart = useRef({ x: 0, y: 0 })
+  const [animating, setAnimating] = useState(false)
+
+  const swipeStart = useRef(0)
   const swiping = useRef(false)
+  const galleryRef = useRef<HTMLDivElement>(null)
 
-  const next = () =>
-    setSelected((selected + 1) % images.length)
+  const next = () => {
+    setSwipeOffset(
+  -(galleryRef.current?.offsetWidth || 0)
+)
+    setAnimating(true)
 
-  const prev = () =>
-    setSelected(
-      (selected - 1 + images.length) % images.length
-    )
+    setTimeout(() => {
+      setSelected((current) => (current + 1) % images.length)
+      setSwipeOffset(0)
+      setAnimating(false)
+    }, 300)
+  }
+
+  const prev = () => {
+    setSwipeOffset(
+  galleryRef.current?.offsetWidth || 0
+)
+    setAnimating(true)
+
+    setTimeout(() => {
+      setSelected(
+        (current) =>
+          (current - 1 + images.length) % images.length
+      )
+      setSwipeOffset(0)
+      setAnimating(false)
+    }, 300)
+  }
 
     useEffect(() => {
       const thumbnail = thumbnailRefs.current[selected]
@@ -324,6 +348,7 @@ export function ProductGallery({
         {/* image */}
 
         <div
+        ref={galleryRef}
   className={`relative h-full w-full ${
     zoomOpen ? "cursor-grab active:cursor-grabbing" : ""
   }`}
@@ -331,25 +356,77 @@ export function ProductGallery({
     touchAction: zoomOpen ? "none" : "pan-y",
   }}
   onMouseDown={(e) => {
-    if (!zoomOpen) return
-
+  if (zoomOpen) {
     setDragging(true)
 
     start.current = {
       x: e.clientX - position.x,
       y: e.clientY - position.y,
     }
-  }}
-  onMouseMove={(e) => {
+
+    return
+  }
+
+  swipeStart.current = e.clientX
+  swiping.current = true
+}}
+
+onMouseMove={(e) => {
+  if (zoomOpen) {
     if (!dragging) return
 
     setPosition({
       x: e.clientX - start.current.x,
       y: e.clientY - start.current.y,
     })
-  }}
-  onMouseUp={() => setDragging(false)}
-  onMouseLeave={() => setDragging(false)}
+
+    return
+  }
+
+  if (!swiping.current) return
+
+  const delta = e.clientX - swipeStart.current
+
+  setSwipeOffset(delta)
+}}
+
+onMouseUp={() => {
+  if (zoomOpen) {
+    setDragging(false)
+    return
+  }
+
+  if (!swiping.current) return
+
+  if (swipeOffset < -80) {
+    next()
+  } else if (swipeOffset > 80) {
+    prev()
+  } else {
+    setAnimating(true)
+    setSwipeOffset(0)
+
+    setTimeout(() => {
+      setAnimating(false)
+    }, 300)
+  }
+
+  swiping.current = false
+}}
+
+onMouseLeave={() => {
+  if (zoomOpen) {
+    setDragging(false)
+    return
+  }
+
+  if (swiping.current) {
+    setSwipeOffset(0)
+  }
+
+  swiping.current = false
+}}
+  
 onTouchStart={(e) => {
   const touch = e.touches[0]
 
@@ -358,69 +435,115 @@ onTouchStart={(e) => {
       x: touch.clientX - position.x,
       y: touch.clientY - position.y,
     }
+
+    setDragging(true)
     return
   }
 
-  swipeStart.current = {
-    x: touch.clientX,
-    y: touch.clientY,
-  }
-
+  swipeStart.current = touch.clientX
   swiping.current = true
 }}
+
 onTouchMove={(e) => {
   const touch = e.touches[0]
 
   if (zoomOpen) {
+    if (!dragging) return
+
     setPosition({
       x: touch.clientX - start.current.x,
       y: touch.clientY - start.current.y,
     })
+
     return
   }
 
   if (!swiping.current) return
 
-  const deltaX = touch.clientX - swipeStart.current.x
-  const deltaY = touch.clientY - swipeStart.current.y
+  const delta =
+    touch.clientX - swipeStart.current
 
-  // prevent horizontal drag interfering with vertical scrolling
-  if (Math.abs(deltaX) > Math.abs(deltaY)) {
-    setSwipeOffset(deltaX)
-  }
+  setSwipeOffset(delta)
 }}
+
 onTouchEnd={() => {
-  if (zoomOpen) return
+  if (zoomOpen) {
+    setDragging(false)
+    return
+  }
+
+  if (!swiping.current) return
 
   if (swipeOffset < -80) {
     next()
   } else if (swipeOffset > 80) {
     prev()
+  } else {
+    setAnimating(true)
+    setSwipeOffset(0)
+
+    setTimeout(() => {
+      setAnimating(false)
+    }, 300)
   }
 
-  setSwipeOffset(0)
   swiping.current = false
 }}
 >
 
-          <Image
-  key={selected}
-  src={images[selected]}
+         <div
+  className={`
+    flex
+    h-full
+    w-[300%]
+    ${animating ? "transition-transform duration-300 ease-out" : ""}
+  `}
+  style={{
+    transform: `translateX(calc(-33.333% + ${swipeOffset}px))`,
+  }}
+>
+  {[
+
+    images[
+      (selected - 1 + images.length) % images.length
+    ],
+
+    images[selected],
+
+    images[
+      (selected + 1) % images.length
+    ],
+
+  ].map((img, index) => (
+    <div
+      key={`${selected}-${index}`}
+      className="relative h-full w-1/3 shrink-0"
+    >
+      <Image
+  src={img}
   alt=""
   fill
-  priority
   draggable={false}
-  className={`object-contain select-none ${
-    swipeOffset === 0
-      ? "transition-transform duration-300"
+  className={`object-contain select-none cursor-grab ${
+    zoomOpen && index === 1
+      ? "cursor-grab active:cursor-grabbing"
       : ""
   }`}
   style={{
-    transform: zoomOpen
-      ? `translate(${position.x}px, ${position.y}px) scale(2)`
-      : `translateX(${swipeOffset}px)`,
+    transform:
+      zoomOpen && index === 1
+        ? `translate(${position.x}px, ${position.y}px) scale(2)`
+        : "translate(0,0) scale(1)",
+    transition:
+      dragging || swipeOffset !== 0
+        ? "none"
+        : "transform 300ms ease",
   }}
 />
+    </div>
+  ))}
+
+</div>
 
         </div>
 
