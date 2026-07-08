@@ -34,33 +34,36 @@ export function ProductGallery({
   const galleryRef = useRef<HTMLDivElement>(null)
 
   const next = () => {
-    setSwipeOffset(
-  -(galleryRef.current?.offsetWidth || 0)
-)
-    setAnimating(true)
+  setSwipeOffset(
+    -(galleryRef.current?.offsetWidth || 0)
+  )
 
-    setTimeout(() => {
-      setSelected((current) => (current + 1) % images.length)
-      setSwipeOffset(0)
-      setAnimating(false)
-    }, 300)
-  }
+  setAnimating(true)
+
+  setTimeout(() => {
+    setSelected((current) => (current + 1) % images.length)
+    setSwipeOffset(0)
+    setAnimating(false)
+  }, 300)
+}
 
   const prev = () => {
-    setSwipeOffset(
-  galleryRef.current?.offsetWidth || 0
-)
-    setAnimating(true)
+  setSwipeOffset(
+    galleryRef.current?.offsetWidth || 0
+  )
 
-    setTimeout(() => {
-      setSelected(
-        (current) =>
-          (current - 1 + images.length) % images.length
-      )
-      setSwipeOffset(0)
-      setAnimating(false)
-    }, 300)
-  }
+  setAnimating(true)
+
+  setTimeout(() => {
+    setSelected(
+      (current) =>
+        (current - 1 + images.length) % images.length
+    )
+
+    setSwipeOffset(0)
+    setAnimating(false)
+  }, 300)
+}
 
     useEffect(() => {
       const thumbnail = thumbnailRefs.current[selected]
@@ -83,6 +86,18 @@ export function ProductGallery({
         behavior: "smooth",
       })
     }, [selected])
+
+  useEffect(() => {
+  const preload = [
+    images[(selected - 1 + images.length) % images.length],
+    images[(selected + 1) % images.length],
+  ]
+
+  preload.forEach((src) => {
+    const img = new window.Image()
+    img.src = src
+  })
+}, [selected, images])
 
   return (
     <div className="space-y-4">
@@ -496,6 +511,8 @@ onTouchEnd={() => {
     flex
     h-full
     w-[300%]
+    will-change-transform
+
     ${animating ? "transition-transform duration-300 ease-out" : ""}
   `}
   style={{
@@ -516,7 +533,7 @@ onTouchEnd={() => {
 
   ].map((img, index) => (
     <div
-      key={`${selected}-${index}`}
+      key={img}
       className="relative h-full w-1/3 shrink-0"
     >
       <Image
@@ -524,6 +541,7 @@ onTouchEnd={() => {
   alt=""
   fill
   draggable={false}
+  priority={index === 1}
   className={`object-contain select-none cursor-grab ${
     zoomOpen && index === 1
       ? "cursor-grab active:cursor-grabbing"
@@ -632,10 +650,8 @@ onTouchEnd={() => {
                 src={img}
                 alt=""
                 fill
-                className="
-                  object-contain
-                  p-2
-                "
+                draggable={false}
+                className="object-contain select-none"
               />
               <span className="sr-only">Image {i + 1}</span>
 
