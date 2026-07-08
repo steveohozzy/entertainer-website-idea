@@ -1,3 +1,5 @@
+'use client'
+
 import { ProductGallery } from "@/components/product-gallery"
 import { ProductBuyBox } from "@/components/product-buy-box"
 import { FeatureChips } from "@/components/feature-chips"
@@ -6,6 +8,7 @@ import { ProductAccordion } from "@/components/product-accordion"
 import { StickyBuyBar } from "@/components/sticky-buy-bar"
 import { RelatedProducts } from "@/components/related-products"
 import { ProductReviews } from "@/components/product-reviews"
+import { useState } from "react"
 
 const product = {
   name: "LEGO City Police Station",
@@ -37,6 +40,8 @@ const product = {
     "Jail Cell",
   ],
 
+  img: "https://www.thetoyshop.com/medias/515Wx515H-582561-582561-8.jpg?context=bWFzdGVyfGltYWdlc3w3MjgyMHxpbWFnZS9qcGVnfGFESTRMMmcxT1M4eE1qYzRORFExTXpNMU16VXdNaTgxTVRWWGVEVXhOVWhmTlRneU5UWXhYelU0TWpVMk1TMDRMbXB3Wnd8ZDE1YzViNGVhZGRjYzlhMTVhOWMxODgxNWVmZjZiZWJlZjU2ZTQ3YTZlMGY2NjZlNWNiMTc3YzUxYzMzMDE5YgW",
+
   sku: "582561",
 
 stock: "In Stock",
@@ -47,6 +52,8 @@ delivery: "FREE Standard Delivery",
 }
 
 export default function ProductPage() {
+  const [storeDrawerOpen, setStoreDrawerOpen] = useState(false)
+
   return (
     <main className="bg-white">
 
@@ -100,14 +107,27 @@ export default function ProductPage() {
           {/* RIGHT BUY BOX */}
           <aside>
 
-            <div className="
-              hidden
-              lg:block
-              sticky
-              top-28
-            ">
+            <div
+              className={`
+                hidden
+                lg:block
+                sticky
+                top-28
+                transition-[z-index]
+                ${
+                  storeDrawerOpen
+                    ? "z-[60]"
+                    : "z-30"
+                }
+              `}
+            >
 
-              <ProductBuyBox product={product} />
+                <ProductBuyBox
+                    product={product}
+                    drawerOpen={storeDrawerOpen}
+                    setDrawerOpen={setStoreDrawerOpen}
+                    
+                />
 
             </div>
 

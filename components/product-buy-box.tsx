@@ -1,11 +1,23 @@
 "use client"
 
-import { Heart, Minus, Plus, ShieldCheck, Star, Truck, ShoppingBag } from "lucide-react"
+import {
+  Heart,
+  Minus,
+  Plus,
+  ShieldCheck,
+  Star,
+  Truck,
+  ShoppingBag,
+  MapPin,
+} from "lucide-react"
 import { useState } from "react"
+import { StoreDrawer, Store } from "@/components/store-drawer"
+import { useCart } from "@/components/cart-provider"
 
 type Product = {
   name: string
   brand: string
+  img: string
   badge?: string
 
   price: number
@@ -18,13 +30,19 @@ type Product = {
 }
 
 export function ProductBuyBox({
-  product,
+    product,
+    drawerOpen,
+    setDrawerOpen,
 }: {
-  product: Product
+    product: Product
+    drawerOpen: boolean
+    setDrawerOpen: React.Dispatch<React.SetStateAction<boolean>>
 }) {
   const [qty, setQty] = useState(1)
   const [liked, setLiked] = useState(false)
   const [added, setAdded] = useState(false)
+  const [selectedStore, setSelectedStore] = useState<Store | null>(null)
+  const { addToCart } = useCart()
 
   const saving =
     product.wasPrice
@@ -164,7 +182,17 @@ export function ProductBuyBox({
 
           <button
             type="button"
-            onClick={() => setAdded(true)}
+            onClick={() => {
+              addToCart({
+                id: product.name,
+                name: product.name,
+                img: "https://www.thetoyshop.com/medias/515Wx515H-582561-Primary?context=bWFzdGVyfGltYWdlc3wxMDkwODd8aW1hZ2UvanBlZ3xhR0poTDJnMk5pOHhNamM0TkRRM056RTNOVGd6T0M4MU1UVlhlRFV4TlVoZk5UZ3lOVFl4WDFCeWFXMWhjbmt8Nzg3Y2U2NmE3MTE4MTllYzRjNjY2NWE4ODQyODU3YjFmOWFhMjFkMjFiNDA2OTU0MTZhNGZmMDYwZWUzYTMyZQ",
+                price: product.price,
+                quantity: qty,
+              })
+
+              setAdded(true)
+            }}
             className={`
               flex
               items-center
@@ -288,23 +316,84 @@ export function ProductBuyBox({
       {/* Store */}
 
       <button
+        onClick={() => setDrawerOpen(true)}
         className="
           w-full
-          rounded-full
-          border-2
-          border-primary
-          py-4
-          font-bold
-          text-primary
+          rounded-[2rem]
+          border
+          border-white/20
+          bg-white/60
+          backdrop-blur-2xl
+          p-6
+          shadow-xl
+          text-left
           transition
-          hover:bg-primary
-          hover:text-white
+          hover:scale-[1.01]
           cursor-pointer
         "
       >
-        Check Store Stock
+
+        {selectedStore ? (
+
+          <>
+
+            <div className="flex items-center gap-2">
+
+              <MapPin className="size-5 text-primary" />
+
+              <h3 className="font-black text-lg">
+                {selectedStore.name}
+              </h3>
+
+            </div>
+
+            <p className="mt-2 text-green-600 font-bold">
+              {selectedStore.stock}
+            </p>
+
+            <p className="mt-1 text-sm text-muted-foreground">
+              {selectedStore.qty > 0
+                ? `${selectedStore.qty} available for Click & Collect`
+                : "Currently unavailable"}
+            </p>
+
+            <p className="mt-4 text-primary font-bold underline">
+              Change Store
+            </p>
+
+          </>
+
+        ) : (
+
+          <>
+
+            <div className="flex items-center gap-2">
+
+              <MapPin className="size-5 text-primary" />
+
+              <h3 className="font-black text-lg">
+                Check Store Stock
+              </h3>
+
+            </div>
+
+            <p className="mt-2 text-sm text-muted-foreground">
+              Check Click & Collect availability at your local store.
+            </p>
+
+          </>
+
+        )}
+
       </button>
 
+
+        <StoreDrawer
+          open={drawerOpen}
+          onClose={() => setDrawerOpen(false)}
+          selectedStore={selectedStore}
+          onSelect={setSelectedStore}
+        />
     </aside>
   )
 }
