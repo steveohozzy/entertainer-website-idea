@@ -99,11 +99,11 @@
 }
 
 ::selection {
-  background: var(--primary);
+  background: var(--secondary);
   color: var(--primary-foreground);
 }
 
 ::-moz-selection {
-  background: var(--primary);
+  background: var(--secondary);
   color: var(--primary-foreground);
 }
