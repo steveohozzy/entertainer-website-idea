@@ -149,7 +149,7 @@ export function Hero() {
                 src="/2026-p7-gta-preorder-pod-530x530.webp"
                 alt="GTA VI"
                 fill
-                className="object-cover"
+                className="object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
                 priority
                 fetchPriority="high"
                 sizes="(max-width: 640px) calc((100vw - 48px) / 2), (max-width: 1024px) 50vw, 25vw"
