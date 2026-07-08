@@ -116,7 +116,7 @@ export default function ProductPage() {
                 transition-[z-index]
                 ${
                   storeDrawerOpen
-                    ? "z-[60]"
+                    ? "z-[9999999999]"
                     : "z-30"
                 }
               `}

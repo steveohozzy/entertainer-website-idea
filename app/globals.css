@@ -98,15 +98,8 @@
   }
 }
 
-section:nth-child(odd) {
-    background: oklch(97.922% 0.01907 90.542);
-    outline: 100vmax solid oklch(97.922% 0.01907 90.542);
-    clip-path: inset(0 -100vmax);
-}
-
-/* Text selection */
 ::selection {
-  background: var(--secondary);
+  background: var(--primary);
   color: var(--primary-foreground);
 }
 
