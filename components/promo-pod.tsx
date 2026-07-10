@@ -44,6 +44,7 @@ export function PromoPod({
         duration-500
         hover:-translate-y-2
         hover:shadow-[0_15px_30px_rgba(0,0,0,.38)]
+        
       "
     >
       {/* IMAGE */}

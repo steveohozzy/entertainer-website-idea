@@ -56,9 +56,9 @@ export default function CartPage() {
             {cartItems.map((item) => (
               <div
                 key={item.id}
-                className="relative flex gap-6 rounded-[32px] border border-white/20 bg-white/60 backdrop-blur-2xl shadow-[0_20px_50px_rgba(0,0,0,.12)] p-6"
+                className="relative flex gap-6 rounded-[32px] border border-white/20 bg-white/60 backdrop-blur-2xl shadow-[0_20px_50px_rgba(0,0,0,.12)] p-6 dark:border-white/20 dark:bg-background/60"
               >
-                <div className="pointer-events-none absolute inset-0 rounded-[32px] bg-gradient-to-br from-white/60 via-transparent to-primary/5" />
+                <div className="pointer-events-none absolute inset-0 rounded-[32px] bg-gradient-to-br from-white/60 via-transparent to-primary/5 " />
 
                 <div className="relative z-10 h-32 w-32 shrink-0">
                   <Image
@@ -90,7 +90,7 @@ export default function CartPage() {
                       </p>
                     </div>
 
-                    <div className="flex items-center gap-3 rounded-full bg-white/60 border border-white/30 px-3 py-2">
+                    <div className="flex items-center gap-3 rounded-full bg-white/60 border border-white/30 px-3 py-2 dark:bg-background/60 dark:border-white/30">
                       <button className="cursor-pointer">
                         <Minus className="size-4" />
                       </button>
@@ -102,7 +102,7 @@ export default function CartPage() {
                   </div>
                 </div>
 
-                <button className="absolute right-5 top-5 rounded-full bg-white/60 p-3 hover:bg-red-100">
+                <button className="absolute right-5 top-5 rounded-full bg-white/60 p-3 hover:bg-red-100 dark:bg-background/60 dark:border-white/30 dark:border cursor-pointer z-10">
                   <Trash2 className="size-5" />
                 </button>
               </div>
@@ -110,8 +110,8 @@ export default function CartPage() {
           </div>
 
           {/* SUMMARY */}
-          <aside className="sticky top-28 h-fit overflow-hidden rounded-[32px] border border-white/15 bg-[rgba(8,16,32,.9)] p-8 text-white backdrop-blur-3xl shadow-[0_40px_120px_rgba(0,0,0,.5)]">
-            <div className="pointer-events-none absolute inset-0 rounded-[32px] bg-gradient-to-br from-white/10 via-transparent to-transparent" />
+          <aside className="sticky top-28 h-fit overflow-hidden rounded-[32px] border border-white/15 bg-[rgba(8,16,32,.9)] p-8 text-white backdrop-blur-3xl shadow-[0_40px_120px_rgba(0,0,0,.5)] ">
+            <div className="pointer-events-none absolute inset-0 rounded-[32px] bg-gradient-to-br from-white/10 via-transparent to-transparent " />
 
             <div className="relative z-10">
               <h2 className="text-2xl font-black">
@@ -119,7 +119,7 @@ export default function CartPage() {
               </h2>
 
               {/* DELIVERY */}
-              <div className="rounded-2xl bg-white/10 py-5 backdrop-blur-xl">
+              <div className="rounded-2xl bg-white/10 py-5 backdrop-blur-xl dark:bg-background/10">
                 <p className="font-black">Delivery</p>
 
                 <label className="mt-4 flex cursor-pointer justify-between rounded-xl bg-white/10 p-4">

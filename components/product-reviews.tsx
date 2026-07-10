@@ -57,6 +57,8 @@ export function ProductReviews({
         shadow-[0_20px_60px_rgba(0,0,0,.08)]
 
         overflow-hidden
+
+        dark:bg-background/75
       "
     >
 
@@ -223,6 +225,9 @@ export function ProductReviews({
 
                   border
                   border-white/30
+
+                  dark:bg-background/75
+                  dark:border-white/30
                 "
               >
 

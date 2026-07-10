@@ -84,6 +84,8 @@ export function SpecificationGrid({
               transition
 
               hover:-translate-y-1
+
+              dark:bg-background/75
             "
           >
 

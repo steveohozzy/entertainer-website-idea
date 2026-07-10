@@ -64,6 +64,8 @@ export function FeatureChips({
 
               hover:-translate-y-1
               hover:shadow-[0_18px_40px_rgba(0,0,0,.12)]
+
+              dark:bg-background/75
             "
           >
 

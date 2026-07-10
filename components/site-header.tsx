@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import {
   Search,
   Heart,
@@ -11,6 +11,8 @@ import {
   Truck,
   ChevronRight,
   ChevronLeft,
+  Sun,
+  Moon,
 } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
@@ -44,6 +46,7 @@ export function SiteHeader() {
   const [open, setOpen] = useState(false)
   const [activeMenu, setActiveMenu] = useState<string | null>(null)
   const [mobileLevel, setMobileLevel] = useState<string | null>(null)
+  const [theme, setTheme] = useState<"light" | "dark">("light")
 
   const activeMobile = navLinks.find((x) => x.label === mobileLevel)
 
@@ -53,11 +56,38 @@ export function SiteHeader() {
   // Dynamically calculate the true sum of all item quantities in the basket
   const totalItemsCount = items.reduce((acc, item) => acc + (item.quantity || 1), 0)
 
+  useEffect(() => {
+    const html = document.documentElement
+
+    const saved = localStorage.getItem("theme")
+
+    if (saved === "light" || saved === "dark") {
+      html.classList.add(saved)
+      setTheme(saved)
+      return
+    }
+
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches
+    setTheme(prefersDark ? "dark" : "light")
+  }, [])
+
+  const toggleTheme = () => {
+  const html = document.documentElement
+
+  const next = theme === "dark" ? "light" : "dark"
+
+    html.classList.remove("light", "dark")
+    html.classList.add(next)
+
+    localStorage.setItem("theme", next)
+    setTheme(next)
+  }
+
   return (
     <header className="sticky top-0 z-50 w-full overflow-x-clip">
 
       {/* top bar */}
-      <div className="bg-foreground text-background">
+      <div className="bg-foreground text-background dark:bg-background dark:text-foreground">
         <div className="mx-auto flex max-w-7xl items-center justify-center gap-2 px-4 py-2 text-xs font-semibold">
           <Truck className="size-4" />
           Free click & collect · Free delivery over £30
@@ -74,6 +104,8 @@ export function SiteHeader() {
           backdrop-blur-3xl
           shadow-[0_20px_60px_rgba(0,0,0,.35)]
           overflow-visible
+          dark:bg-background/75
+          dark:shadow-[0_20px_60px_rgba(0,0,0,.35)]
         "
       >
         <div className="mx-auto flex max-w-7xl items-center gap-4 px-4 py-3">
@@ -133,6 +165,30 @@ export function SiteHeader() {
           {/* icons */}
           <div className="ml-auto flex items-center gap-2 text-white">
 
+            <button
+                onClick={toggleTheme}
+                className="
+                  flex
+                  h-10
+                  w-10
+                  items-center
+                  justify-center
+                  rounded-full
+                  bg-white/10
+                  backdrop-blur-xl
+                  transition
+                  hover:bg-white/20
+                  cursor-pointer
+                "
+                aria-label="Toggle theme"
+              >
+                {theme === "dark" ? (
+                  <Sun className="size-5" />
+                ) : (
+                  <Moon className="size-5" />
+                )}
+              </button>
+            
             <User className="hidden sm:block cursor-pointer" />
             <Heart className="cursor-pointer" />
 
@@ -153,6 +209,7 @@ export function SiteHeader() {
                     transition-opacity
                     hover:opacity-90
                     cursor-pointer
+                    dark:bg-background
                   "
                 >
                   <ShoppingBag className="size-5" />

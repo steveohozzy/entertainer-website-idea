@@ -95,6 +95,7 @@ export function ProductBuyBox({
           backdrop-blur-2xl
           p-6
           shadow-xl
+          dark:bg-background/75
         "
       >
 
@@ -137,6 +138,8 @@ export function ProductBuyBox({
           backdrop-blur-2xl
           p-6
           shadow-xl
+
+          dark:bg-background/75
         "
       >
 
@@ -151,6 +154,9 @@ export function ProductBuyBox({
               rounded-full
               bg-white
               shadow
+              dark:bg-background
+              dark:border-white/20
+              dark:border
             "
           >
 
@@ -245,6 +251,9 @@ export function ProductBuyBox({
               transition
               hover:scale-110
               cursor-pointer
+              dark:bg-background
+              dark:border-white/20
+              dark:border
             "
           >
             <Heart
@@ -272,6 +281,8 @@ export function ProductBuyBox({
           p-6
           shadow-xl
           space-y-5
+
+          dark:bg-background/75
         "
       >
 
@@ -330,6 +341,7 @@ export function ProductBuyBox({
           transition
           hover:scale-[1.01]
           cursor-pointer
+          dark:bg-background/75
         "
       >
 

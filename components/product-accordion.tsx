@@ -128,6 +128,9 @@ export function ProductAccordion({
         shadow-[0_20px_60px_rgba(0,0,0,.08)]
 
         overflow-hidden
+
+        dark:bg-background/75
+        
       "
     >
 
@@ -141,6 +144,7 @@ export function ProductAccordion({
               border-b
               border-black/5
               last:border-none
+              dark:border-white/10
             "
           >
 

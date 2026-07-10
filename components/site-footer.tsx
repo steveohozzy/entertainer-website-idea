@@ -18,7 +18,7 @@ const columns = [
 
 export function SiteFooter() {
   return (
-    <footer className="bg-foreground text-background">
+    <footer className="bg-foreground text-background dark:bg-background dark:text-foreground">
       <div className="mx-auto max-w-7xl px-4 py-14">
         <div className="grid gap-10 lg:grid-cols-[1.4fr_repeat(3,1fr)]">
           <div>
@@ -27,7 +27,7 @@ export function SiteFooter() {
                           <Image title="" alt="" src="https://www.thetoyshop.com/medias/entertainer-logo-secondary-BTS-1-.png?context=bWFzdGVyfGltYWdlc3wxNjcxNDN8aW1hZ2UvcG5nfGFHSmxMMmhoWXk4eE1qWTNPRGt6TkRJd01ETTFNQzlsYm5SbGNuUmhhVzVsY2kxc2IyZHZMWE5sWTI5dVpHRnllUzFDVkZNdE1TMHVjRzVufDIyOWZjZDk5YmZlZWNmYWI2ZTU0NGJhMjhlMTcyMmNjYzdhNDdlMGJkODBiOWIyODlmMWQ5MzFjNjgxZTc2YTU" width={200} height={40} />
                         </span>
                       </a>
-            <p className="mt-4 max-w-xs text-pretty text-sm leading-relaxed text-background/70">
+            <p className="mt-4 max-w-xs text-pretty text-sm leading-relaxed text-background/70 dark:text-foreground/70">
               The UK&apos;s favourite toy shop — bringing joy to families with
               carefully chosen toys since day one.
             </p>
@@ -47,7 +47,7 @@ export function SiteFooter() {
 
           {columns.map((col) => (
             <div key={col.title}>
-              <div className="font-heading text-sm font-bold uppercase tracking-widest text-background">
+              <div className="font-heading text-sm font-bold uppercase tracking-widest text-background dark:text-foreground">
                 {col.title}
               </div>
               <ul className="mt-4 space-y-3">
@@ -55,7 +55,7 @@ export function SiteFooter() {
                   <li key={link}>
                     <a
                       href="#top"
-                      className="text-sm text-background/70 transition hover:text-background"
+                      className="text-sm text-background/70 transition hover:text-background dark:text-foreground/70"
                     >
                       {link}
                     </a>
@@ -66,7 +66,7 @@ export function SiteFooter() {
           ))}
         </div>
 
-        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-background/15 pt-6 text-sm text-background/60 sm:flex-row">
+        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-background/15 pt-6 text-sm text-background/60 sm:flex-row dark:border-background/15 dark:text-foreground/60">
           <p>© {new Date().getFullYear()} The Entertainer.</p>
           <div className="flex gap-5">
             <a href="#top" className="transition hover:text-background">Privacy</a>
