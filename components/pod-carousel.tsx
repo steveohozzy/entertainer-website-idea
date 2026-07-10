@@ -104,10 +104,10 @@ export function PodCarousel() {
   }
 
   return (
-    <section className="mx-auto max-w-7xl px-4 py-10">
+    <section className="mx-auto max-w-7xl px-4 pt-10 pb-6">
 
       {/* header */}
-      <div className="mb-6 flex items-end justify-between">
+      <div className="mb-4 flex items-end justify-between">
 
         <h2 className="mt-1 font-heading text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
             Featured Deals
@@ -206,6 +206,7 @@ export function PodCarousel() {
             scroll-smooth
             snap-x
             snap-mandatory
+            pt-2
 
             cursor-grab
             active:cursor-grabbing
