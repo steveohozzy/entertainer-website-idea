@@ -274,69 +274,50 @@ body {
       #07111d,
       #0b1727
     );
-
   background-attachment: fixed;
 }
 
 :root.dark body::before {
   content: "";
-
   position: fixed;
-
   top: calc(var(--site-header-height) + 40px);
   right: 80px;
-
   width: 46px;
   height: 46px;
-
   border-radius: 50%;
-
   background:
     radial-gradient(circle,
       rgba(255,250,225,.95) 0%,
       rgba(255,250,225,.8) 55%,
       rgba(255,250,225,.15) 100%);
-
   box-shadow:
-      0 0 18px rgba(255,245,210,.08);
-
+    0 0 18px rgba(255,245,210,.08);
   z-index: -1;
-
   animation: moonGlow 8s ease-in-out infinite;
-
   pointer-events:none;
 }
 
 :root.dark body::after{
     content:"";
-
     position:fixed;
-
     top:calc(var(--site-header-height) + 40px);
     right:70px;
-
     width:46px;
     height:46px;
-
     border-radius:50%;
-
     background:#08111f;
-
     z-index:-1;
-
     pointer-events:none;
 }
 
 @keyframes moonGlow{
+  0%,100%{
+    opacity:.82;
+  }
 
-    0%,100%{
-        opacity:.82;
-    }
-
-    50%{
-        opacity:1;
-    }
-
+  50%{
+      opacity:1;
+  }
 }
 
 @media (prefers-color-scheme: dark) {
