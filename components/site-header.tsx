@@ -61,14 +61,39 @@ export function SiteHeader() {
 
     const saved = localStorage.getItem("theme")
 
+    // User has already chosen a theme
     if (saved === "light" || saved === "dark") {
+      html.classList.remove("light", "dark")
       html.classList.add(saved)
       setTheme(saved)
       return
     }
 
-    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches
-    setTheme(prefersDark ? "dark" : "light")
+    // Approximate UK sunset hour by month
+    const sunsetByMonth = [
+      16, // Jan
+      17, // Feb
+      18, // Mar
+      20, // Apr
+      21, // May
+      21, // Jun
+      21, // Jul
+      20, // Aug
+      19, // Sep
+      18, // Oct
+      16, // Nov
+      16, // Dec
+    ]
+
+    const now = new Date()
+    const sunsetHour = sunsetByMonth[now.getMonth()]
+    const defaultTheme =
+      now.getHours() >= sunsetHour ? "dark" : "light"
+
+    html.classList.remove("light", "dark")
+    html.classList.add(defaultTheme)
+
+    setTheme(defaultTheme)
   }, [])
 
   const toggleTheme = () => {

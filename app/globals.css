@@ -163,7 +163,7 @@ body {
   --destructive: oklch(0.65 0.24 25);
 
   /* Charts */
-  --chart-1: oklch(0.64 0.18 245);
+  --chart-1: oklch(87.483% 0.1826 101.259);
   --chart-2: oklch(0.67 0.22 22);
   --chart-3: oklch(0.72 0.16 210);
   --chart-4: oklch(0.78 0.14 145);
@@ -242,7 +242,7 @@ body {
     --destructive: oklch(0.65 0.24 25);
 
     /* Charts */
-    --chart-1: oklch(0.64 0.18 245);
+    --chart-1: oklch(87.483% 0.1826 101.259);
     --chart-2: oklch(0.67 0.22 22);
     --chart-3: oklch(0.72 0.16 210);
     --chart-4: oklch(0.78 0.14 145);
